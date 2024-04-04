@@ -20,6 +20,6 @@ public class Pet {
     private String id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "USER_ID")
     private User user;
 }

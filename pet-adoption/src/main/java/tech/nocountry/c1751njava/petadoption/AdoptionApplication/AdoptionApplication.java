@@ -19,7 +19,6 @@ public class AdoptionApplication {
     @Column(name = "ID")
     private String id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID")
-    @Column(name = "USER")
+    @JoinColumn(name = "USER_ID")
     private User user;
 }
