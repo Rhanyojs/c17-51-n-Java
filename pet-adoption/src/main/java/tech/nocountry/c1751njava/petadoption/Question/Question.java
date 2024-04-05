@@ -11,12 +11,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table
+@Table(name = "AM_QUESTION")
 public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "ID")
     private String id;
-    private String question;
+    private String bodyQuestion;
     private String answer;
 }
