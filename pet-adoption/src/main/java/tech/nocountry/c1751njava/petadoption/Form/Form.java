@@ -24,7 +24,7 @@ public class Form {
     @Column(name = "ID")
     private String id;
     private User user;
-    private List<Pet> petList = new ArrayList<>();
-    private Question question;
+    private Pet pet;
+    private List<Question> question = new ArrayList<>();
     private State state;
 }

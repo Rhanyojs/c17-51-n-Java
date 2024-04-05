@@ -46,7 +46,7 @@ public class User implements UserDetails {
             fetch = FetchType.LAZY,
             orphanRemoval = true
     )
-    private Pet pet;
+    private List<Pet> petList= new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
