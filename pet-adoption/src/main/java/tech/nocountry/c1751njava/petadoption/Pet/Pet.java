@@ -5,7 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import tech.nocountry.c1751njava.petadoption.Request.Request;
 import tech.nocountry.c1751njava.petadoption.User.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
@@ -25,4 +29,5 @@ public class Pet {
     private int age;
     private String ubication;
     private boolean isState;
+    private List<Request> requestList = new ArrayList<>();
 }

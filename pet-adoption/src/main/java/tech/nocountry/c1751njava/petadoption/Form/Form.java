@@ -9,6 +9,9 @@ import tech.nocountry.c1751njava.petadoption.Pet.Pet;
 import tech.nocountry.c1751njava.petadoption.Question.Question;
 import tech.nocountry.c1751njava.petadoption.User.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -21,7 +24,7 @@ public class Form {
     @Column(name = "ID")
     private String id;
     private User user;
-    private Pet pet;
+    private List<Pet> petList = new ArrayList<>();
     private Question question;
     private State state;
 }
