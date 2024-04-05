@@ -17,6 +17,8 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "ID")
     private String id;
+    @Column(name = "BODYQUESTION")
     private String bodyQuestion;
+    @Column(name = "ANSER")
     private String answer;
 }

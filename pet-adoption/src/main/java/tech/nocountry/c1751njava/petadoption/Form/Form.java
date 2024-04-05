@@ -23,8 +23,12 @@ public class Form {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "ID")
     private String id;
-    private User user;
-    private Pet pet;
-    private List<Question> question = new ArrayList<>();
+    @OneToMany(mappedBy = "id",
+    cascade = CascadeType.ALL,
+    fetch = FetchType.LAZY,
+    orphanRemoval = true)
+    private List<Question> questionList = new ArrayList<>();
+    @Enumerated(EnumType.STRING)
+    @Column(name = "STATE")
     private State state;
 }
