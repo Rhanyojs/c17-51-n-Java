@@ -1,11 +1,13 @@
 package tech.nocountry.c1751njava.petadoption.Form;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import tech.nocountry.c1751njava.petadoption.Pet.Pet;
+import tech.nocountry.c1751njava.petadoption.Question.Question;
+import tech.nocountry.c1751njava.petadoption.User.User;
 
 @Data
 @Builder
@@ -14,5 +16,12 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "AM_FORM")
 public class Form {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "ID")
+    private String id;
+    private User user;
+    private Pet pet;
+    private Question question;
+    private State state;
 }

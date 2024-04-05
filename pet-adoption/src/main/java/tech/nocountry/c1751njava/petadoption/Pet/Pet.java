@@ -18,8 +18,11 @@ public class Pet {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "ID")
     private String id;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")
     private User user;
+    private String description;
+    private int age;
+    private String ubication;
+    private boolean isState;
 }

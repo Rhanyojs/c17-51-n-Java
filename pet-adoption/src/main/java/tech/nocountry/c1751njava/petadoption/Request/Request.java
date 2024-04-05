@@ -18,7 +18,7 @@ import tech.nocountry.c1751njava.petadoption.User.User;
 @Table(name = "AM_REQUEST")
 public class Request {
     private String id;
-    private User user;        
+    private User user;
     private Pet pet;
     private Form form;
 }
