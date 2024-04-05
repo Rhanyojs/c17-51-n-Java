@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import tech.nocountry.c1751njava.petadoption.Form.Form;
 
 @Data
 @Builder
@@ -21,4 +22,8 @@ public class Question {
     private String bodyQuestion;
     @Column(name = "ANSER")
     private String answer;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FORM_ID")
+    private Form form;
 }

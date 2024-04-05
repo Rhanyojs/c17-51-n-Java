@@ -34,7 +34,6 @@ public class Pet {
     @Column(name = "STATE")
     private boolean isState;
     @ManyToOne(fetch = FetchType.LAZY)
-    //chequear si es el nombre correcto
     @JoinColumn(name = "REQUEST_ID")
-    private List<Request> requestList = new ArrayList<>();
+    private Request request;
 }

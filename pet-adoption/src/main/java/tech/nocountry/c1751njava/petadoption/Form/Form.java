@@ -5,9 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import tech.nocountry.c1751njava.petadoption.Pet.Pet;
 import tech.nocountry.c1751njava.petadoption.Question.Question;
-import tech.nocountry.c1751njava.petadoption.User.User;
+import tech.nocountry.c1751njava.petadoption.Request.Request;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,11 +22,16 @@ public class Form {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "ID")
     private String id;
-    @OneToMany(mappedBy = "id",
+
+    @OneToOne(mappedBy = "form")
+    private Request request;
+
+    @OneToMany(mappedBy = "form",
     cascade = CascadeType.ALL,
     fetch = FetchType.LAZY,
     orphanRemoval = true)
     private List<Question> questionList = new ArrayList<>();
+
     @Enumerated(EnumType.STRING)
     @Column(name = "STATE")
     private State state;

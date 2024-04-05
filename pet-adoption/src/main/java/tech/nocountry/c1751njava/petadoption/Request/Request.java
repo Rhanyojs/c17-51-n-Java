@@ -9,6 +9,8 @@ import tech.nocountry.c1751njava.petadoption.Form.Form;
 import tech.nocountry.c1751njava.petadoption.Pet.Pet;
 import tech.nocountry.c1751njava.petadoption.User.User;
 
+import java.util.List;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -17,21 +19,17 @@ import tech.nocountry.c1751njava.petadoption.User.User;
 @Table(name = "AM_REQUEST")
 public class Request {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.AUTO) // or GenerationType.UUID if using UUID
     @Column(name = "ID")
     private String id;
-    /*
-      CHEQUEAR RELACIONADO
-            */
+
     @OneToOne
-    private User user;
-    @OneToMany(mappedBy = "id",
-    cascade = CascadeType.ALL,
-    fetch = FetchType.LAZY,
-    orphanRemoval = true)
-    @Column(name = "PET")
-    private Pet pet;
-    @OneToOne
-    @Column(name = "FORM")
+    @JoinColumn(name = "FORM_ID")
     private Form form;
+
+    @OneToMany(mappedBy = "request",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            orphanRemoval = true)
+    private List<Pet> pets;
 }
