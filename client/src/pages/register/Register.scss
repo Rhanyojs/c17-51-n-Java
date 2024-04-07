@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: calc(100vh - 64px);
   padding: 20px;
   background-color: #ff9078;
   -webkit-box-shadow: 9px 10px 5px -4px rgba(245, 88, 57, 0.55);
