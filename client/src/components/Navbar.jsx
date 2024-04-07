@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-
+import UserNav from './UserNav';
 
 export default function Navbar() {
 
-  const [user, setUser] = useState('fdsa');
+  const [user, setUser] = useState(null);
 
   const navigate = useNavigate();
 
@@ -44,7 +44,7 @@ export default function Navbar() {
             className='flex gap-3'
           >
             <button
-              onClick={navigate.bind(this, '/login')}
+              onClick={setUser.bind(this, true)}
             >
               Inicia sesión
             </button>
@@ -58,12 +58,7 @@ export default function Navbar() {
       }
       {
         user && (
-          <div
-            id="userNav"
-            className='flex gap-3'
-          >
-
-          </div>
+          <UserNav setUser={setUser} />
         )
       }
 
