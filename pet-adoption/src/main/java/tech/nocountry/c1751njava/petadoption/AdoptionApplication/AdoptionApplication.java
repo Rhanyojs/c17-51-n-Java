@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import tech.nocountry.c1751njava.petadoption.User.User;
+import tech.nocountry.c1751njava.petadoption.User.Model.User;
 
 @Data
 @Builder

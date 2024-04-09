@@ -6,10 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import tech.nocountry.c1751njava.petadoption.Request.Request;
-import tech.nocountry.c1751njava.petadoption.User.User;
-
-import java.util.ArrayList;
-import java.util.List;
+import tech.nocountry.c1751njava.petadoption.User.Model.User;
 
 @Data
 @Builder

@@ -8,8 +8,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import tech.nocountry.c1751njava.petadoption.Jwt.JwtService;
 import tech.nocountry.c1751njava.petadoption.User.Role;
-import tech.nocountry.c1751njava.petadoption.User.User;
-import tech.nocountry.c1751njava.petadoption.User.UserRepository;
+import tech.nocountry.c1751njava.petadoption.User.Model.User;
+import tech.nocountry.c1751njava.petadoption.User.Repository.UserRepository;
 
 @Service
 @RequiredArgsConstructor

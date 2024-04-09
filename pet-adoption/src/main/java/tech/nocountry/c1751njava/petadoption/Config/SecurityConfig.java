@@ -28,7 +28,7 @@ public class SecurityConfig {
          * authenticado
          */
         return httpSecurity
-                .csrf(csrf -> csrf.disable())
+                .csrf(csrf -> csrf.disable()) // solo en el entorno de desarrollo
                 .authorizeHttpRequests(authRequest -> authRequest
                         .requestMatchers("/auth/**").permitAll()
                         .anyRequest().authenticated())

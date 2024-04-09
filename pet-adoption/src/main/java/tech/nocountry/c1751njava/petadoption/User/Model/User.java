@@ -1,4 +1,4 @@
-package tech.nocountry.c1751njava.petadoption.User;
+package tech.nocountry.c1751njava.petadoption.User.Model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import tech.nocountry.c1751njava.petadoption.AdoptionApplication.AdoptionApplication;
 import tech.nocountry.c1751njava.petadoption.Pet.Pet;
+import tech.nocountry.c1751njava.petadoption.User.Role;
 
 import java.util.ArrayList;
 import java.util.Collection;
