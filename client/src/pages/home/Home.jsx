@@ -1,10 +1,10 @@
+import LandingPage from "@/components/landing-page/LandingPage";
 import React from "react";
-import Details from "../../components/details/Details";
 
 function Home() {
   return (
     <>
-      <Details />
+      <LandingPage />
       <div className="text-xl text-blue-500">Home</div>
     </>
   );

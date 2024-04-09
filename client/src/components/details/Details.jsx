@@ -7,9 +7,6 @@ function Details() {
     <div className="containerDetails">
       <div className="containerCard">
         <PetCard />
-        <PetCard />
-        <PetCard />
-        <PetCard />
       </div>
     </div>
   );
