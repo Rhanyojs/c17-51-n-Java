@@ -6,7 +6,11 @@ import Login from "../pages/login/Login";
 export default function AppRouter() {
   return (
     <>
+      <Navbar />
       <Routes>
+        <Route element={<Home />} path="/" />
+        <Route element={<Register />} path="/Register" />
+        <Route element={<Login />} path="/Login" />
         <Route element={<Home />} path="/"></Route>
         <Route element={<Register />} path="/Register"></Route>
         <Route element={<Login />} path="/Login"></Route>

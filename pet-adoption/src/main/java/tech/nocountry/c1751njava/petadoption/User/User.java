@@ -34,23 +34,19 @@ public class User implements UserDetails {
     private String firstName;
     @Column(name = "LASTNAME")
     private String lastName;
-    @Column(name = "COUNTRY")
-    private String country;
     @Enumerated(EnumType.STRING)
     @Column(name = "ROLE")
     private Role role;
-    @Column(name = "LOCATION")
+    @Column(name = "LOCATION", nullable = true)
     private String location;
-    @OneToMany(mappedBy = "AM_USERS", cascade = CascadeType.ALL, orphanRemoval = true)
-    @Column(name = "APPLICATION")
-    private ArrayList<AdoptionApplication> adoptionApplications;
-    @Column(name = "IS_BANNED")
+    @Column(name = "IS_BANNED", nullable = true)
     private Boolean isBanned;
-    @OneToMany(mappedBy = "AM_USERS", cascade = CascadeType.ALL, orphanRemoval = true)
-    @Column(name = "PET")
-    private ArrayList<Pet> pets;
-
-
+    @OneToMany(mappedBy = "id",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            orphanRemoval = true
+    )
+    private List<Pet> petList= new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
