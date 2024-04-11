@@ -1,9 +1,12 @@
 package tech.nocountry.c1751njava.petadoption.Pet.service.DTO.mapper;
 
+import org.springframework.stereotype.Service;
 import tech.nocountry.c1751njava.petadoption.Pet.Pet;
 import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.PetDTO;
 
-public class PetToPetDTO implements IMapper<Pet, PetDTO> {
+@Service
+public class PetMapper implements IMapper<Pet, PetDTO> {
+
     @Override
     public PetDTO map(Pet in) {
         PetDTO petDTO = new PetDTO();

@@ -3,10 +3,9 @@ package tech.nocountry.c1751njava.petadoption.Pet.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tech.nocountry.c1751njava.petadoption.Pet.Pet;
-import tech.nocountry.c1751njava.petadoption.Pet.repository.PetRepository;
 import tech.nocountry.c1751njava.petadoption.Pet.repository.dao.IPetDao;
 import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.PetDTO;
-import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.mapper.PetToPetDTO;
+import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.mapper.PetMapper;
 import tech.nocountry.c1751njava.petadoption.Pet.service.interfaces.IPetService;
 
 import java.util.List;
@@ -14,14 +13,19 @@ import java.util.Optional;
 
 @Service
 public class PetService implements IPetService {
-    @Autowired
-    private IPetDao petDao;
-    private PetToPetDTO mapper;
 
+    private final IPetDao petDao;
+    private final PetMapper mapper;
+
+    @Autowired
+    public PetService(IPetDao petDao, PetMapper petMapperService) {
+        this.petDao = petDao;
+        this.mapper = petMapperService;
+    }
 
     @Override
     public String savePet(PetDTO petDto) {
-        final Pet pet =Pet.builder()
+        final Pet pet = Pet.builder()
                 .user(petDto.getUser())
                 .description(petDto.getDescription())
                 .age(petDto.getAge())
@@ -39,11 +43,11 @@ public class PetService implements IPetService {
 
     @Override
     public Optional<PetDTO> findPetById(String id) {
-        return petDao.findPetById(id).map(PetService::)
+        return petDao.findPetById(id).map(mapper::map);
     }
 
     @Override
     public List<PetDTO> findAllPets() {
-        return null;
+        return petDao.findAllPets().stream().map(mapper::map).toList();
     }
 }
