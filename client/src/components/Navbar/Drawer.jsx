@@ -1,8 +1,13 @@
 import { useState } from 'react';
+import { Button } from '@ui/button';
+import { useNavigate } from 'react-router-dom';
+import { navItems } from './navItems';
 
-export default function MobileDrawer() {
+
+
+export default function Drawer({ user, setUser }) {
   const [isOpen, setIsOpen] = useState(false);
-
+  const navigate = useNavigate();
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
   };
@@ -46,32 +51,39 @@ export default function MobileDrawer() {
             </button>
           </div>
           <div className="mt-3">
-            <ul className="space-y-2">
-              <li>
-                <button className="block w-full text-left px-4 py-2 hover:bg-gray-100" onClick={toggleDrawer}>
-                  Inicio
-                </button>
-              </li>
-              <li>
-                <button className="block w-full text-left px-4 py-2 hover:bg-gray-100" onClick={toggleDrawer}>
-                  Mascotas
-                </button>
-              </li>
-              <li>
-                <button className="block w-full text-left px-4 py-2 hover:bg-gray-100" onClick={toggleDrawer}>
-                  Sobre nosotros
-                </button>
-              </li>
-              <li>
-                <button className="block w-full text-left px-4 py-2 hover:bg-gray-100" onClick={toggleDrawer}>
-                  Contacto
-                </button>
-              </li>
+            <ul className="space-y-2 mb-2">
+              {
+                navItems.map((item, index) => (
+                  <NavDrawerItem key={index} href={item.href} navigate={navigate} onClick={toggleDrawer}>
+                    {item.name}
+                  </NavDrawerItem>))
+              }
             </ul>
-            {/* Aquí iría la lógica para mostrar botones de registro e inicio de sesión si no hay un usuario logueado */}
+            {!user && (
+              <div className='flex flex-col gap-3 pl-2 pr-5 w-[max-width]'>
+                <Button className="" onClick={() => { toggleDrawer(); navigate('/register') }}>Registrarse</Button>
+                <Button onClick={() => { toggleDrawer(); setUser(true) }}>Iniciar sesión</Button>
+              </div>
+            )}
           </div>
         </div>
       </div>
     </>
+  );
+}
+
+function NavDrawerItem({ children, href, navigate, onClick }) {
+  return (
+    <li>
+      <button
+        className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+        onClick={() => {
+          onClick()
+          navigate(href)
+        }}
+      >
+        {children}
+      </button>
+    </li>
   );
 }

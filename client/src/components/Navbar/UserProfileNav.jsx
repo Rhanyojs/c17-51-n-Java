@@ -10,7 +10,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@components/ui/avatar'
 
 
-export default function UserNav({ setUser }) {
+export default function UserProfileNav({ setUser }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
