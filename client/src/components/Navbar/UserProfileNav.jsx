@@ -6,15 +6,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+} from "@ui/dropdown-menu"
+import { Avatar, AvatarFallback, AvatarImage } from '@components/ui/avatar'
 
 
-export default function UserNav({ setUser }) {
+export default function UserProfileNav({ setUser }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <div className='w-[120px]'>
+        <div className='w-[120px] flex justify-end'>
 
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" />

@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "@pages/home/Home";
 import Register from "@pages/register/Register";
-import Navbar from '@components/Navbar';
+import Navbar from '@/components/Navbar';
 import Login from '@pages/login/Login';
 
 export default function AppRouter() {
