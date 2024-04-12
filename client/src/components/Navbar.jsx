@@ -23,7 +23,7 @@ export default function Navbar() {
           <a href="/">Inicio</a>
         </li>
         <li>
-          <button onClick={navigate.bind(this, "/Pets")}>Mascotas</button>
+          <button onClick={navigate.bind(this, "/Details")}>Mascotas</button>
         </li>
         <li>
           <a href="/nosotros">Sobre nosotros</a>

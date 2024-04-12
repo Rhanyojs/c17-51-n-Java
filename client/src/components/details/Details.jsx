@@ -5,7 +5,18 @@ import PetCard from "../PetCard/PetCard";
 function Details() {
   return (
     <div className="containerDetails">
+      <div className="TitleContainer">
+        <h1 className="title">¿Estás buscando un nuevo amigo?</h1>
+        <h3 className="Subtitle">Todos ellos están listos para su adopción</h3>
+      </div>
       <div className="containerCard">
+        <PetCard />
+        <PetCard />
+        <PetCard />
+        <PetCard />
+        <PetCard />
+        <PetCard />
+        <PetCard />
         <PetCard />
       </div>
     </div>

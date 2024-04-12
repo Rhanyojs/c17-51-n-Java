@@ -3,7 +3,9 @@ import Home from "../pages/home/Home";
 import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
 import Navbar from "@/components/Navbar";
-import Pets from "@/pages/pets/Pets";
+
+import Details from "@/components/details/Details";
+import PetInformation from "@/components/petInformation/PetInformation";
 
 export default function AppRouter() {
   return (
@@ -13,7 +15,8 @@ export default function AppRouter() {
         <Route element={<Home />} path="/" />
         <Route element={<Register />} path="/Register" />
         <Route element={<Login />} path="/Login" />
-        <Route element={<Pets />} path="/Pets" />
+        <Route element={<Details />} path="/Details" />
+        <Route element={<PetInformation />} path="/PetInformation" />
       </Routes>
     </>
   );

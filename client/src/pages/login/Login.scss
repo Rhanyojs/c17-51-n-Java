@@ -14,6 +14,7 @@
     font-weight: bold;
     color: #ffff;
     margin-bottom: 20px;
+    font-weight: bold;
   }
   .login-form {
     width: 300px;
@@ -60,6 +61,21 @@
       }
     }
 
+    .login-button {
+      width: 100%;
+      padding: 10px;
+      background-color: #ffee7a;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+
+      &:hover {
+        background-color: #ffcd7a;
+      }
+    }
+
     .forgot-password-container {
       color: #92c7cf;
       cursor: pointer;
@@ -73,7 +89,7 @@
     }
 
     .forgot-password-container:hover {
-      text-decoration: underline; /* Subraya el texto al pasar el ratón */
+      text-decoration: underline;
     }
   }
 }
