@@ -2,7 +2,7 @@ import React from "react";
 import "./Details.scss";
 import PetCard from "../PetCard/PetCard";
 
-function Details() {
+function Mascotas() {
   return (
     <div className="containerDetails">
       <div className="TitleContainer">
@@ -23,4 +23,4 @@ function Details() {
   );
 }
 
-export default Details;
+export default Mascotas;

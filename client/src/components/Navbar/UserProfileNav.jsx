@@ -1,4 +1,3 @@
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,16 +5,14 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@ui/dropdown-menu"
-import { Avatar, AvatarFallback, AvatarImage } from '@components/ui/avatar'
-
+} from "@ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@components/ui/avatar";
 
 export default function UserProfileNav({ setUser }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <div className='w-[120px] flex justify-end'>
-
+        <div className="w-[120px] flex justify-end">
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" />
             <AvatarFallback>CN</AvatarFallback>
@@ -30,10 +27,10 @@ export default function UserProfileNav({ setUser }) {
         <DropdownMenuItem>Team</DropdownMenuItem>
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem
-          onClick={setUser.bind(this, null)}
-        >Cerrar Sesión</DropdownMenuItem>
+        <DropdownMenuItem onClick={setUser.bind(this, null)}>
+          Cerrar Sesión
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }

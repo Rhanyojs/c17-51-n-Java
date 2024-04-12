@@ -1,10 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "../pages/home/Home";
-import Register from "../pages/register/Register";
-import Login from "../pages/login/Login";
+import Home from "@pages/home/Home";
+import Register from "@pages/register/Register";
 import Navbar from "@/components/Navbar";
-
-import Details from "@/components/details/Details";
+import Login from "@pages/login/Login";
+import Mascotas from "@/components/Mascotas/Mascotas";
 import PetInformation from "@/components/petInformation/PetInformation";
 
 export default function AppRouter() {
@@ -15,7 +14,7 @@ export default function AppRouter() {
         <Route element={<Home />} path="/" />
         <Route element={<Register />} path="/Register" />
         <Route element={<Login />} path="/Login" />
-        <Route element={<Details />} path="/Details" />
+        <Route element={<Mascotas />} path="/Mascotas" />
         <Route element={<PetInformation />} path="/PetInformation" />
       </Routes>
     </>
