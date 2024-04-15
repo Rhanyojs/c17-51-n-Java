@@ -6,11 +6,11 @@ import java.util.Optional;
 public interface EntityCRUDService<T> {
     T create(T entity);
 
-    Optional<T> read(Long id);
+    Optional<T> read(String id);
 
     T update(T entity);
 
-    void delete(Long id);
+    void delete(String id);
 
     List<T> getAll();
 

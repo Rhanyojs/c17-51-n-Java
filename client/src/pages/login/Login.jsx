@@ -28,9 +28,19 @@ const Login = () => {
             placeholder="Ingresa tu contraseña"
           />
         </div>
+        <div className="login-remember">
+          <div className="login-checkbox-container">
+            <input type="checkbox" />
+            <p>recordar contraseña</p>
+          </div>
+        </div>
+
         <button type="submit" className="login-button">
           Iniciar sesión
         </button>
+        <div className="forgot-password-container">
+          <p>Has olvidado tu contraseña?</p>
+        </div>
       </form>
     </div>
   );

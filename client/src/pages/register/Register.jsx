@@ -1,8 +1,13 @@
-// Register.jsx
-import React from "react";
+import React, { useState } from "react";
 import "./Register.scss";
 
 const Register = () => {
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const handleSelectChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
   return (
     <div className="register-container">
       <h2 className="register-title">Registro</h2>
@@ -40,6 +45,24 @@ const Register = () => {
             placeholder="Ingresa tu contraseña"
           />
         </div>
+
+        <div className="register-input-container">
+          <label htmlFor="options" className="register-label">
+            Selecciona un tipo de usuario
+          </label>
+          <select
+            value={selectedOption}
+            onChange={handleSelectChange}
+            className="register-input"
+            id="options"
+          >
+            <option value="">Selecciona...</option>
+            <option value="opcion1">Persona</option>
+            <option value="opcion2">Refugio</option>
+            <option value="opcion3">Administrador</option>
+          </select>
+        </div>
+
         <button type="submit" className="register-button">
           Registrarse
         </button>
