@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import tech.nocountry.c1751njava.petadoption.Pet.Pet;
+import tech.nocountry.c1751njava.petadoption.Pet.Model.Pet;
 import tech.nocountry.c1751njava.petadoption.User.Role;
 
 import java.util.Collection;

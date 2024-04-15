@@ -1,4 +1,4 @@
-package tech.nocountry.c1751njava.petadoption.Pet;
+package tech.nocountry.c1751njava.petadoption.Pet.Model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import tech.nocountry.c1751njava.petadoption.Form.Form;
-import tech.nocountry.c1751njava.petadoption.Pet.Pet;
+import tech.nocountry.c1751njava.petadoption.Pet.Model.Pet;
 
 import java.util.List;
 
