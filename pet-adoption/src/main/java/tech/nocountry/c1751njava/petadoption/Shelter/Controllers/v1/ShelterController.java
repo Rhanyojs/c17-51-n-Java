@@ -1,7 +1,6 @@
 package tech.nocountry.c1751njava.petadoption.Shelter.Controllers.v1;
 
 import jakarta.persistence.EntityNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +14,6 @@ public class ShelterController {
 
     private final ShelterServicesImpl shelterServices;
 
-    @Autowired
     ShelterController(ShelterServicesImpl services) {
         this.shelterServices = services;
     }
@@ -43,7 +41,7 @@ public class ShelterController {
         try {
             return new ResponseEntity<>(shelterServices.update(user), HttpStatus.CREATED);
         } catch (EntityNotFoundException e) {
-            return new ResponseEntity<>("No se encontro el usuario", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("No se encontró el usuario", HttpStatus.NOT_FOUND);
         }
     }
 
@@ -53,11 +51,11 @@ public class ShelterController {
             shelterServices.delete(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (EntityNotFoundException e) {
-            return new ResponseEntity<>("No se encontro el usuario", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("No se encontró el usuario", HttpStatus.NOT_FOUND);
         }
     }
 
-    @ExceptionHandler({DataAccessException.class})
+    @ExceptionHandler({ DataAccessException.class })
     public ResponseEntity<?> handleException(Exception e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }

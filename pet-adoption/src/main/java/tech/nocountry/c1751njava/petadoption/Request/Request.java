@@ -31,4 +31,10 @@ public class Request {
             fetch = FetchType.LAZY,
             orphanRemoval = true)
     private List<Pet> pets;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "STATE")
+    private State state;
+
+
 }
