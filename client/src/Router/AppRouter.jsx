@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Login from "@pages/login/Login";
 import Mascotas from "@/components/Mascotas/Mascotas";
 import PetInformation from "@/components/petInformation/PetInformation";
+import Contacto from "@/pages/contacto/Contacto";
 
 export default function AppRouter() {
   return (
@@ -16,6 +17,7 @@ export default function AppRouter() {
         <Route element={<Login />} path="/Login" />
         <Route element={<Mascotas />} path="/Mascotas" />
         <Route element={<PetInformation />} path="/PetInformation" />
+        <Route element={<Contacto/>} path="/Contacto"/>
       </Routes>
     </>
   );
