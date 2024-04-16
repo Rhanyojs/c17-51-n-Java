@@ -34,6 +34,8 @@ public class AuthService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .firstName(request.getFirstname())
                 .lastName(request.getLastname())
+                .isBanned(false)
+                .location(request.getLocation())
                 .role(Role.USER)
                 .build();
 
