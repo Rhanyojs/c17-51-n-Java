@@ -31,7 +31,7 @@ public class ShelterServicesImpl implements EntityCRUDService<User> {
     }
 
     @Override
-    public Optional<User> read(String id) {
+    public Optional<User> getById(String id) {
         return Optional.empty();
     }
 
