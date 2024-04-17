@@ -37,9 +37,10 @@ export function Header() {
           </div>
           <div className='w-full h-full flex justify-center lg:justify-end '>
             <div className=" lg:min-w-[400px] lg:w-[55%] bg-gray-100 p-8 rounded-lg shadow-lg">
-              <div className="flex justify-between mb-4">
-                <Button className="bg-blue-500 text-white rounded-lg px-4 py-2">Dog</Button>
-                <Button className="bg-pink-400 text-white rounded-lg px-4 py-2">Cat</Button>
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">Busqueda rapida</h3>
+              <div className="flex gap-3 mb-4">
+                <Button className="bg-blue-500 text-white rounded-lg px-4 py-2">Ver Perros</Button>
+                <Button className="bg-pink-400 text-white rounded-lg px-4 py-2">Ver Gatos</Button>
               </div>
               <h3 className="text-xl font-semibold text-gray-700 mb-2">Encuentra tu mascota ideal</h3>
               <p className="text-sm text-gray-500 mb-4">
