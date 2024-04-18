@@ -6,29 +6,32 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import tech.nocountry.c1751njava.petadoption.exception.custom.ErrorResponse;
+import tech.nocountry.c1751njava.petadoption.exception.custom.ValidationError;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<?> customValidationErrorHandling(MethodArgumentNotValidException exception) {
-        Map<String, Object> errors = new HashMap<>();
+    public ResponseEntity<ErrorResponse> customValidationErrorHandling(MethodArgumentNotValidException exception) {
+        List<ValidationError> errors = new ArrayList<>();
 
-        exception.getBindingResult().getAllErrors().forEach((error) -> {
+        exception.getBindingResult().getAllErrors().forEach(error -> {
             String fieldName = ((FieldError) error).getField();
             String errorMessage = error.getDefaultMessage();
-            errors.put(fieldName, errorMessage);
+            errors.add(new ValidationError(fieldName, errorMessage));
         });
 
-        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+        ErrorResponse errorResponse = new ErrorResponse(errors);
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
 
     @ExceptionHandler({Exception.class})
-    public ResponseEntity<?> handleException(Exception e) {
+    public ResponseEntity<String> handleException(Exception e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 

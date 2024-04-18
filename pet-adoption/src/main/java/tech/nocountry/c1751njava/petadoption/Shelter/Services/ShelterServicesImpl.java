@@ -27,7 +27,7 @@ public class ShelterServicesImpl implements EntityCRUDService<UserDto, UserReque
     @Override
     @Transactional
     public UserDto create(UserRequest entity) {
-        if (!validate(entity)) {
+        if (validate(entity)) {
             throw new IllegalArgumentException("User is not valid");
         }
         User user = userMapper.toUser(entity);
@@ -62,7 +62,7 @@ public class ShelterServicesImpl implements EntityCRUDService<UserDto, UserReque
 
     @Override
     public boolean validate(UserRequest entity) {
-        return entity != null;
+        return entity == null;
     }
 
 }

@@ -22,14 +22,7 @@ public class AuthController {
 
     @PostMapping(value = "register")
     public ResponseEntity<AuthResponse> register(@Valid @RequestBody RegisterRequest request) {
-        System.out.println(request);
-
         AuthResponse response = authService.register(request);
         return ResponseEntity.ok(response);
-    }
-
-    @PostMapping(value = "test")
-    public ResponseEntity<String> test() {
-        return ResponseEntity.ok("Hello");
     }
 }

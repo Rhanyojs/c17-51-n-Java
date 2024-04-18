@@ -17,23 +17,22 @@ public class RegisterRequest {
     @NotEmpty
     String username;
 
-    @NotNull(message = "El campo 'password' es requerido")
-    @NotEmpty(message = "El campo 'password' no puede estar vacío")
-
+    @NotNull(message = "Se requiere la contraseña")
+    @NotEmpty(message = "La contraseña no puede estar vacía")
     @Min(value = 8, message = "La contraseña debe tener al menos 8 caracteres")
     @Max(value = 20, message = "La contraseña no puede tener más de 20 caracteres")
     @Size(min = 8, message = "La contraseña debe tener al menos 8 caracteres")
     String password;
 
-    @NotNull(message = "El campo 'firstname' es requerido")
-    @NotEmpty(message = "El campo 'firstname' no puede estar vacío")
+    @NotNull(message = "Se requiere el nombre")
+    @NotEmpty(message = "El nombre no puede estar vacío")
     String firstname;
 
-    @NotNull(message = "El campo 'lastname' es requerido")
-    @NotEmpty(message = "El campo 'lastname' no puede estar vacío")
+    @NotNull(message = "Se requiere el apellido")
+    @NotEmpty(message = "El apellido no puede estar vacío")
     String lastname;
 
-    @NotNull(message = "El campo 'location' es requerido")
-    @NotEmpty(message = "El campo 'location' no puede estar vacío")
+    @NotNull(message = "Se requiere la ubicación")
+    @NotEmpty(message = "La ubicación no puede estar vacía")
     String location;
 }

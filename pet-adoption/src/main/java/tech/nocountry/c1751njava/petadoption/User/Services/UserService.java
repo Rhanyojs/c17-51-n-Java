@@ -24,7 +24,7 @@ public class UserService implements EntityCRUDService<UserDto, UserRequest> {
     @Override
     @Transactional
     public UserDto create(UserRequest entity) throws IllegalArgumentException {
-        if (!validate(entity)) {
+        if (validate(entity)) {
             throw new IllegalArgumentException("User is not valid");
         }
         User user = userMapper.toUser(entity);
@@ -39,7 +39,7 @@ public class UserService implements EntityCRUDService<UserDto, UserRequest> {
     @Override
     @Transactional
     public UserDto update(UserRequest entity, String id) throws RuntimeException {
-        if (!validate(entity)) {
+        if (validate(entity)) {
             throw new IllegalArgumentException("User is not valid");
         }
         checkUserExists(id);
@@ -65,7 +65,7 @@ public class UserService implements EntityCRUDService<UserDto, UserRequest> {
 
     @Override
     public boolean validate(UserRequest entity) {
-        return entity != null;
+        return entity == null;
     }
 
     private void checkUserExists(String id) {
