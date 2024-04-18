@@ -1,23 +1,25 @@
 package tech.nocountry.c1751njava.petadoption.Shelter.Controllers.v1;
 
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.nocountry.c1751njava.petadoption.Shelter.Services.ShelterServicesImpl;
-import tech.nocountry.c1751njava.petadoption.User.Model.User;
+import tech.nocountry.c1751njava.petadoption.User.dto.UserDto;
+import tech.nocountry.c1751njava.petadoption.User.dto.UserRequest;
 
 @RestController
 @RequestMapping(value = "/api/v1/shelter")
+@RequiredArgsConstructor
 public class ShelterController {
 
     private final ShelterServicesImpl shelterServices;
 
-    ShelterController(ShelterServicesImpl services) {
-        this.shelterServices = services;
-    }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping()
     public ResponseEntity<?> getAll() {
         try {
@@ -28,7 +30,7 @@ public class ShelterController {
     }
 
     @PostMapping()
-    public ResponseEntity<?> createShelter(@RequestBody User user) {
+    public ResponseEntity<?> createShelter(@RequestBody @Valid UserRequest user) {
         try {
             return new ResponseEntity<>(shelterServices.create(user), HttpStatus.CREATED);
         } catch (DataAccessException e) {
@@ -36,10 +38,11 @@ public class ShelterController {
         }
     }
 
-    @PutMapping()
-    public ResponseEntity<?> updateShelter(@RequestBody User user) {
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateShelter(@RequestBody @Valid UserRequest user, @PathVariable String id) {
         try {
-            return new ResponseEntity<>(shelterServices.update(user), HttpStatus.CREATED);
+            UserDto userDto = shelterServices.update(user, id);
+            return new ResponseEntity<>(userDto, HttpStatus.OK);
         } catch (EntityNotFoundException e) {
             return new ResponseEntity<>("No se encontró el usuario", HttpStatus.NOT_FOUND);
         }
@@ -55,9 +58,5 @@ public class ShelterController {
         }
     }
 
-    @ExceptionHandler({ DataAccessException.class })
-    public ResponseEntity<?> handleException(Exception e) {
-        return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
 
 }
