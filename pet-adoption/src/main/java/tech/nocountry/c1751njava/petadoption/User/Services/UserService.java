@@ -7,38 +7,44 @@ import org.springframework.stereotype.Service;
 import tech.nocountry.c1751njava.petadoption.EntityCRUDService;
 import tech.nocountry.c1751njava.petadoption.User.Model.User;
 import tech.nocountry.c1751njava.petadoption.User.Repository.UserRepository;
+import tech.nocountry.c1751njava.petadoption.User.dto.UserDto;
+import tech.nocountry.c1751njava.petadoption.User.dto.UserRequest;
+import tech.nocountry.c1751njava.petadoption.User.dto.mapper.UserMapper;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class UserService implements EntityCRUDService<User> {
+public class UserService implements EntityCRUDService<UserDto, UserRequest> {
 
     private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
     @Override
     @Transactional
-    public User create(User entity) throws IllegalArgumentException {
+    public UserDto create(UserRequest entity) throws IllegalArgumentException {
         if (!validate(entity)) {
             throw new IllegalArgumentException("User is not valid");
         }
-        return userRepository.save(entity);
+        User user = userMapper.toUser(entity);
+        return userMapper.userToDto(userRepository.save(user));
     }
 
     @Override
-    public Optional<User> getById(String id) {
-        return userRepository.findById(id);
+    public Optional<UserDto> getById(String id) {
+        return userRepository.findById(id).map(userMapper::userToDto);
     }
 
     @Override
-    public User update(User entity) throws RuntimeException {
+    @Transactional
+    public UserDto update(UserRequest entity, String id) throws RuntimeException {
         if (!validate(entity)) {
             throw new IllegalArgumentException("User is not valid");
         }
-        checkUserExists(entity.getId());
-
-        return userRepository.save(entity);
+        checkUserExists(id);
+        User user = userMapper.toUser(entity);
+        return userMapper.userToDto(userRepository.save(user));
     }
 
     @Override
@@ -48,17 +54,17 @@ public class UserService implements EntityCRUDService<User> {
     }
 
     @Override
-    public List<User> getAll() {
-        return userRepository.findAll();
+    public List<UserDto> getAll() {
+        return userRepository.findAll().stream().map(userMapper::userToDto).toList();
     }
 
     @Override
-    public List<User> search(String field, String criteria) {
+    public List<UserDto> search(String field, String criteria) {
         return List.of();
     }
 
     @Override
-    public boolean validate(User entity) {
+    public boolean validate(UserRequest entity) {
         return entity != null;
     }
 

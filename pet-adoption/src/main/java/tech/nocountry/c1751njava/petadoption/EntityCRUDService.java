@@ -3,11 +3,11 @@ package tech.nocountry.c1751njava.petadoption;
 import java.util.List;
 import java.util.Optional;
 
-public interface EntityCRUDService<T> {
+public interface EntityCRUDService<T, S> {
 
-    T create(T entity);
+    T create(S entity);
 
-    T update(T entity);
+    T update(S entity, String id);
 
     void delete(String id);
 
@@ -17,5 +17,5 @@ public interface EntityCRUDService<T> {
 
     List<T> search(String field, String criteria);
 
-    boolean validate(T entity);
+    boolean validate(S entity);
 }
