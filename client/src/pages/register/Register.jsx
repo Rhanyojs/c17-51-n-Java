@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Register.scss";
+import Footer from "@/components/Footer/Footer";
 
 const Register = () => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -67,7 +68,9 @@ const Register = () => {
           Registrarse
         </button>
       </form>
+      <Footer/>
     </div>
+
   );
 };
 

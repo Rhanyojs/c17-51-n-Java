@@ -20,6 +20,7 @@ export default function AppRouter() {
         <Route element={<PetInformation />} path="/PetInformation" />
         <Route element={<Contacto/>} path="/Contacto"/>
         <Route element={<Nosotros/>} path="/Nosotros"/>
+        
       </Routes>
     </>
   );

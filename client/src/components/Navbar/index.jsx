@@ -5,6 +5,7 @@ import useHandleResize from "@/hooks/useHandleResize";
 import Drawer from "./Drawer";
 import { navItems } from "./navItems";
 
+
 export default function Navbar() {
   const [user, setUser] = useState(null);
   const isMobile = useHandleResize({ breakpoint: 768 });
