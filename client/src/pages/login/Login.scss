@@ -9,12 +9,31 @@
   -webkit-box-shadow: 9px 10px 5px -4px rgba(0, 0, 0, 0.55);
   -moz-box-shadow: 9px 10px 5px -4px rgba(0, 0, 0, 0.55);
   box-shadow: 9px 10px 5px -4px rgba(0, 0, 0, 0.55);
+
+  .login-span {
+    font-size: 15px;
+    color: tomato;
+    &.success {
+      color: green;
+    }
+  }
   .register-title {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: bold;
     color: #ffff;
-    margin-bottom: 20px;
+
     font-weight: bold;
+  }
+
+  .container-login-icon {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    .login-icon {
+      width: 100%;
+      height: 100%;
+      color: #ffff;
+    }
   }
   .login-form {
     width: 300px;
