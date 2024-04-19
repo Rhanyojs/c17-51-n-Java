@@ -1,4 +1,7 @@
 package tech.nocountry.c1751njava.petadoption.Request.Repository;
 
-public interface RequestRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import tech.nocountry.c1751njava.petadoption.Request.Request;
+
+public interface RequestRepository extends JpaRepository<Request,Long> {
 }
