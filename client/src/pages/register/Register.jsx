@@ -1,6 +1,7 @@
 import React from "react";
 import "./Register.scss";
-import Footer from "@/components/Footer/Footer";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const Register = () => {
   // Desestructuración de la función useForm() de React Hook Form
@@ -184,7 +185,6 @@ const Register = () => {
           Registrarse
         </button>
       </form>
-      <Footer />
     </div>
   );
 };
