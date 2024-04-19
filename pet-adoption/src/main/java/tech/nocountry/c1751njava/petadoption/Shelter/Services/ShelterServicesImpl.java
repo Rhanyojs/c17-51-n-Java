@@ -1,81 +1,71 @@
 package tech.nocountry.c1751njava.petadoption.Shelter.Services;
 
-import jakarta.persistence.EntityExistsException;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataAccessException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import tech.nocountry.c1751njava.petadoption.EntityCRUDService;
 import tech.nocountry.c1751njava.petadoption.User.Model.User;
 import tech.nocountry.c1751njava.petadoption.User.Repository.UserRepository;
+import tech.nocountry.c1751njava.petadoption.User.Role;
+import tech.nocountry.c1751njava.petadoption.User.Services.UserService;
+import tech.nocountry.c1751njava.petadoption.User.dto.UserDto;
+import tech.nocountry.c1751njava.petadoption.User.dto.UserRequest;
+import tech.nocountry.c1751njava.petadoption.User.dto.mapper.UserMapper;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional
 @RequiredArgsConstructor
-public class ShelterServicesImpl implements EntityCRUDService<User> {
+public class ShelterServicesImpl implements EntityCRUDService<UserDto, UserRequest> {
 
-    private final UserRepository shelterRepository;
+    private final UserRepository userRepository;
+    private final UserMapper userMapper;
+    private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
-    public User create(User entity) {
-        if (validate(entity)) throw new IllegalArgumentException();
-        try {
-            return shelterRepository.save(entity);
-        } catch (Exception e) {
-            throw new EntityExistsException(e.getMessage());
+    @Transactional
+    public UserDto create(UserRequest entity) {
+        if (validate(entity)) {
+            throw new IllegalArgumentException("User is not valid");
         }
+        User user = userMapper.toUser(entity);
+        user.setRole(Role.SHELTER);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        return userMapper.userToDto(userRepository.save(user));
     }
 
     @Override
-    public Optional<User> read(String id) {
-        return Optional.empty();
+    public Optional<UserDto> getById(String id) {
+        return userService.getById(id);
     }
 
     @Override
-    public User update(User entity) {
-        exists(entity.getId());
-        try {
-            return shelterRepository.save(entity);
-        } catch (DataAccessException e) {
-            throw new RuntimeException(e.getMessage());
-        }
+    public UserDto update(UserRequest entity, String id) {
+        return userService.update(entity, id);
     }
 
     @Override
-    public void delete(String id) {
-        exists(id);
-        try {
-            shelterRepository.deleteById(id);
-        } catch (DataAccessException e) {
-            throw new RuntimeException(e.getMessage());
-        }
+    public void delete(String id) throws DataAccessException {
+        userService.delete(id);
     }
 
     @Override
-    public List<User> getAll() {
-        return shelterRepository.findAll();
+    public List<UserDto> getAll() {
+        return userService.getAll().stream().filter(user -> user.getRole().equals(Role.SHELTER)).toList();
     }
 
     @Override
-    public List<User> search(String criteria) {
+    public List<UserDto> search(String field, String criteria) {
         return List.of();
     }
 
     @Override
-    public boolean validate(User entity) {
-        return entity.getUsername() != null && !entity.getUsername().isEmpty() &&
-                entity.getPassword() != null;
-    }
-
-    public boolean exists(String id) throws EntityNotFoundException {
-        if (!shelterRepository.existsById(id)) {
-            throw new EntityNotFoundException("Usuario no encontrado");
-        }
-        return true;
+    public boolean validate(UserRequest entity) {
+        return entity == null;
     }
 
 }
