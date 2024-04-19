@@ -55,7 +55,7 @@ public class ShelterServicesImpl implements EntityCRUDService<UserDto, UserReque
 
     @Override
     public List<UserDto> getAll() {
-        return userService.getAll();
+        return userService.getAll().stream().filter(user -> user.getRole().equals(Role.SHELTER)).toList();
     }
 
     @Override
