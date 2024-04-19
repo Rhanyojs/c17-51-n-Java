@@ -3,6 +3,7 @@ package tech.nocountry.c1751njava.petadoption.User.Services;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import tech.nocountry.c1751njava.petadoption.EntityCRUDService;
 import tech.nocountry.c1751njava.petadoption.User.Model.User;
@@ -20,6 +21,7 @@ public class UserService implements EntityCRUDService<UserDto, UserRequest> {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     @Transactional
@@ -28,12 +30,8 @@ public class UserService implements EntityCRUDService<UserDto, UserRequest> {
             throw new IllegalArgumentException("User is not valid");
         }
         User user = userMapper.toUser(entity);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userMapper.userToDto(userRepository.save(user));
-    }
-
-    @Override
-    public Optional<UserDto> getById(String id) {
-        return userRepository.findById(id).map(userMapper::userToDto);
     }
 
     @Override
@@ -42,15 +40,22 @@ public class UserService implements EntityCRUDService<UserDto, UserRequest> {
         if (validate(entity)) {
             throw new IllegalArgumentException("User is not valid");
         }
-        checkUserExists(id);
-        User user = userMapper.toUser(entity);
-        return userMapper.userToDto(userRepository.save(user));
+        User existingUser = userRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("User not found"));
+
+        updateUserFromRequest(existingUser, entity);
+        return userMapper.userToDto(userRepository.save(existingUser));
     }
 
     @Override
     public void delete(String id) throws EntityNotFoundException {
         checkUserExists(id);
         userRepository.deleteById(id);
+    }
+
+    @Override
+    public Optional<UserDto> getById(String id) {
+        return userRepository.findById(id).map(userMapper::userToDto);
     }
 
     @Override
@@ -71,6 +76,24 @@ public class UserService implements EntityCRUDService<UserDto, UserRequest> {
     private void checkUserExists(String id) {
         if (!userRepository.existsById(id)) {
             throw new EntityNotFoundException("User not found");
+        }
+    }
+
+    public void updateUserFromRequest(User user, UserRequest userRequest) {
+        if (userRequest.getUsername() != null) {
+            user.setUsername(userRequest.getUsername());
+        }
+        if (userRequest.getPassword() != null) {
+            user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
+        }
+        if (userRequest.getFirstName() != null) {
+            user.setFirstName(userRequest.getFirstName());
+        }
+        if (userRequest.getLastName() != null) {
+            user.setLastName(userRequest.getLastName());
+        }
+        if (userRequest.getLocation() != null) {
+            user.setLocation(userRequest.getLocation());
         }
     }
 }

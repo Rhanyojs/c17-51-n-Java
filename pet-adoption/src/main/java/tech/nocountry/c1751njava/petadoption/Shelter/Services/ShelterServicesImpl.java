@@ -3,6 +3,7 @@ package tech.nocountry.c1751njava.petadoption.Shelter.Services;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataAccessException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import tech.nocountry.c1751njava.petadoption.EntityCRUDService;
 import tech.nocountry.c1751njava.petadoption.User.Model.User;
@@ -23,6 +24,7 @@ public class ShelterServicesImpl implements EntityCRUDService<UserDto, UserReque
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     @Transactional
@@ -32,6 +34,7 @@ public class ShelterServicesImpl implements EntityCRUDService<UserDto, UserReque
         }
         User user = userMapper.toUser(entity);
         user.setRole(Role.SHELTER);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userMapper.userToDto(userRepository.save(user));
     }
 

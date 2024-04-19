@@ -22,7 +22,7 @@ public class UserDto {
 
     private String location;
 
-    private Boolean isBanned = false;
+    private Boolean isBanned;
 
     private List<Pet> pets;
 }

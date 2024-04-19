@@ -39,8 +39,8 @@ public class User implements UserDetails {
     @Column(name = "LOCATION", nullable = true)
     private String location;
     @Column(name = "IS_BANNED", nullable = true)
-    private Boolean isBanned;
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private Boolean isBanned = false;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Pet> petList;
 
     @Override
