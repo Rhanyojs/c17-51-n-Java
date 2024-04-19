@@ -1,0 +1,27 @@
+.pie_pagina{
+    width:110%;
+    height:20% ;
+    display: flex;
+    justify-content: space-around;
+    padding:1em 0 0 0;
+    margin-top: 3%;
+    margin-bottom: -4%;
+    background-color: white;
+    
+}
+
+.pie_pagina__titulo{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+}
+.pie_pagina__lista li{
+    margin: 1em 0;
+}
+.pie_pagina__link{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+    color: var(--white);
+}
