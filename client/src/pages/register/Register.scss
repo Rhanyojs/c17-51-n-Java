@@ -53,14 +53,14 @@
       width: 100%;
       padding: 10px;
       background-color: #ffee7a;
-      color: white;
+      color: #000;
       border: none;
       border-radius: 4px;
       cursor: pointer;
       font-weight: bold;
-
       &:hover {
-        background-color: #ffcd7a;
+        background: #bd177a;
+        color: #ffffff;
       }
     }
   }
