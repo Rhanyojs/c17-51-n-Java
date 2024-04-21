@@ -59,11 +59,6 @@ public class ShelterServicesImpl implements EntityCRUDService<UserDto, UserReque
     }
 
     @Override
-    public List<UserDto> search(String field, String criteria) {
-        return List.of();
-    }
-
-    @Override
     public boolean validate(UserRequest entity) {
         return entity == null;
     }

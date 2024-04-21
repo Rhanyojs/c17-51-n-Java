@@ -15,7 +15,5 @@ public interface EntityCRUDService<T, S> {
 
     List<T> getAll();
 
-    List<T> search(String field, String criteria);
-
     boolean validate(S entity);
 }

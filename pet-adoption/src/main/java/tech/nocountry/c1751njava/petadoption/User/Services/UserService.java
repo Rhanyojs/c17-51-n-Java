@@ -64,11 +64,6 @@ public class UserService implements EntityCRUDService<UserDto, UserRequest> {
     }
 
     @Override
-    public List<UserDto> search(String field, String criteria) {
-        return List.of();
-    }
-
-    @Override
     public boolean validate(UserRequest entity) {
         return entity == null;
     }
