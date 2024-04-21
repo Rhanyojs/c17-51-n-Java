@@ -31,6 +31,7 @@ public class SecurityConfig {
                                 .csrf(csrf -> csrf.disable()) // solo en el entorno de desarrollo
                                 .authorizeHttpRequests(authRequest -> authRequest
                                                 .requestMatchers("/auth/**").permitAll()
+                                                //.requestMatchers("/api/v1/request/**").permitAll()
                                                 .anyRequest().authenticated())
                                 .sessionManagement(sessionManagement -> sessionManagement
                                                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
