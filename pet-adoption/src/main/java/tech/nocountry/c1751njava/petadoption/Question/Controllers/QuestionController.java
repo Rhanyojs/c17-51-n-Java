@@ -24,6 +24,12 @@ public class QuestionController {
         return new ResponseEntity<>(questions, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Question> getById(@PathVariable String id) {
+        Question question = questionService.getById(id).orElse(null);
+        return new ResponseEntity<>(question, question != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
+    }
+
     @GetMapping("/form/{formId}")
     public ResponseEntity<List<Question>> getAllByFormId(@PathVariable String formId) {
         List<Question> questions = questionService.getAllByFormId(formId);
