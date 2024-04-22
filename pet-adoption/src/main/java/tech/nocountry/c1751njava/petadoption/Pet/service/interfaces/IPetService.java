@@ -1,6 +1,5 @@
 package tech.nocountry.c1751njava.petadoption.Pet.service.interfaces;
 
-import tech.nocountry.c1751njava.petadoption.Pet.Pet;
 import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.PetDTO;
 
 import java.util.List;

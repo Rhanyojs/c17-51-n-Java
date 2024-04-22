@@ -2,13 +2,10 @@ package tech.nocountry.c1751njava.petadoption.Pet.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tech.nocountry.c1751njava.petadoption.Pet.Pet;
 import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.PetDTO;
 import tech.nocountry.c1751njava.petadoption.Pet.service.PetService;
 import tech.nocountry.c1751njava.petadoption.Shelter.Services.ShelterServicesImpl;
-import tech.nocountry.c1751njava.petadoption.User.Model.User;
 
-import javax.swing.text.html.Option;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -19,12 +16,9 @@ import java.util.Optional;
 public class PetController {
 
     private final PetService petService;
-    private final ShelterServicesImpl userService;
 
-
-    public PetController(PetService petService, ShelterServicesImpl userService) {
+    public PetController(PetService petService) {
         this.petService = petService;
-        this.userService = userService;
     }
 
     @PostMapping

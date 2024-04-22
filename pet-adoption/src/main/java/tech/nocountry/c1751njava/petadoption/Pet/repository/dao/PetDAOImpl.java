@@ -1,15 +1,15 @@
-package tech.nocountry.c1751njava.petadoption.Pet.repository.dao;
+package tech.nocountry.c1751njava.petadoption.Pet.Repository.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import tech.nocountry.c1751njava.petadoption.Pet.Pet;
-import tech.nocountry.c1751njava.petadoption.Pet.repository.PetRepository;
+import tech.nocountry.c1751njava.petadoption.Pet.Model.Pet;
+import tech.nocountry.c1751njava.petadoption.Pet.Repository.PetRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Component
-public class PetDAOImpl implements IPetDao{
+public class PetDAOImpl implements IPetDao {
 
     @Autowired
     private PetRepository petRepository;

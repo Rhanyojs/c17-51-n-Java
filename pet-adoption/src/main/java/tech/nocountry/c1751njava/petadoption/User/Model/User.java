@@ -1,5 +1,6 @@
 package tech.nocountry.c1751njava.petadoption.User.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,6 +41,7 @@ public class User implements UserDetails {
     private String location;
     @Column(name = "IS_BANNED", nullable = true)
     private Boolean isBanned = false;
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Pet> petList;
 

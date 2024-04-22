@@ -2,11 +2,12 @@ package tech.nocountry.c1751njava.petadoption.Pet.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tech.nocountry.c1751njava.petadoption.Pet.Pet;
-import tech.nocountry.c1751njava.petadoption.Pet.repository.dao.IPetDao;
+import tech.nocountry.c1751njava.petadoption.Pet.Model.Pet;
+import tech.nocountry.c1751njava.petadoption.Pet.Repository.dao.IPetDao;
 import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.PetDTO;
 import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.mapper.PetMapper;
 import tech.nocountry.c1751njava.petadoption.Pet.service.interfaces.IPetService;
+import tech.nocountry.c1751njava.petadoption.User.dto.mapper.UserMapper;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,12 +27,11 @@ public class PetService implements IPetService {
     @Override
     public String savePet(PetDTO petDto) {
         final Pet pet = Pet.builder()
-                .user(petDto.getUser())
+                .user(new UserMapper().dtoToUser(petDto.getUser()))
                 .description(petDto.getDescription())
                 .age(petDto.getAge())
                 .ubication(petDto.getUbication())
                 .isState(petDto.isState())
-                .request(petDto.getRequest())
                 .build();
         return petDao.savePet(pet).getId();
     }
