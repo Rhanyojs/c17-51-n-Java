@@ -3,7 +3,7 @@ package tech.nocountry.c1751njava.petadoption.exception.custom;
 import lombok.Getter;
 
 @Getter
-public class ValidationError extends Exception {
+public class ValidationError extends RuntimeException {
     private String fieldName;
     private String message;
 
@@ -13,4 +13,8 @@ public class ValidationError extends Exception {
         this.message = message;
     }
 
+    @Override
+    public synchronized Throwable fillInStackTrace() {
+        return this;
+    }
 }

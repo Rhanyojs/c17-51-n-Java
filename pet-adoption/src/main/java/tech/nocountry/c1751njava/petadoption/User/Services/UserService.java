@@ -5,19 +5,21 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import tech.nocountry.c1751njava.petadoption.AbstractEntityService;
 import tech.nocountry.c1751njava.petadoption.EntityCRUDService;
 import tech.nocountry.c1751njava.petadoption.User.Model.User;
 import tech.nocountry.c1751njava.petadoption.User.Repository.UserRepository;
 import tech.nocountry.c1751njava.petadoption.User.dto.UserDto;
 import tech.nocountry.c1751njava.petadoption.User.dto.UserRequest;
 import tech.nocountry.c1751njava.petadoption.User.dto.mapper.UserMapper;
+import tech.nocountry.c1751njava.petadoption.exception.custom.ValidationError;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class UserService implements EntityCRUDService<UserDto, UserRequest> {
+public class UserService extends AbstractEntityService<User, UserRequest> implements EntityCRUDService<UserDto, UserRequest> {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
@@ -43,7 +45,7 @@ public class UserService implements EntityCRUDService<UserDto, UserRequest> {
         User existingUser = userRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("User not found"));
 
-        updateUserFromRequest(existingUser, entity);
+        updateFromDto(existingUser, entity);
         return userMapper.userToDto(userRepository.save(existingUser));
     }
 
@@ -74,21 +76,22 @@ public class UserService implements EntityCRUDService<UserDto, UserRequest> {
         }
     }
 
-    public void updateUserFromRequest(User user, UserRequest userRequest) {
-        if (userRequest.getUsername() != null) {
-            user.setUsername(userRequest.getUsername());
+    @Override
+    protected void updateFromDto(User entity, UserRequest dto) throws ValidationError {
+        if (dto.getUsername() != null) {
+            entity.setUsername(dto.getUsername());
         }
-        if (userRequest.getPassword() != null) {
-            user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
+        if (dto.getPassword() != null) {
+            entity.setPassword(passwordEncoder.encode(dto.getPassword()));
         }
-        if (userRequest.getFirstName() != null) {
-            user.setFirstName(userRequest.getFirstName());
+        if (dto.getFirstName() != null) {
+            entity.setFirstName(dto.getFirstName());
         }
-        if (userRequest.getLastName() != null) {
-            user.setLastName(userRequest.getLastName());
+        if (dto.getLastName() != null) {
+            entity.setLastName(dto.getLastName());
         }
-        if (userRequest.getLocation() != null) {
-            user.setLocation(userRequest.getLocation());
+        if (dto.getLocation() != null) {
+            entity.setLocation(dto.getLocation());
         }
     }
 }

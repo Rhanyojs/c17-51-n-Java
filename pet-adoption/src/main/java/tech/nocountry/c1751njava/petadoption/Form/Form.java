@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import tech.nocountry.c1751njava.petadoption.Question.Question;
+import tech.nocountry.c1751njava.petadoption.Question.Model.Question;
 import tech.nocountry.c1751njava.petadoption.Request.Request;
 import tech.nocountry.c1751njava.petadoption.Request.State;
 
