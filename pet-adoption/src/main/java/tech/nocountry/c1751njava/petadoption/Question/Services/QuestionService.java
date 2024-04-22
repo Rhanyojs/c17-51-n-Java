@@ -82,7 +82,6 @@ public class QuestionService extends AbstractEntityService implements EntityCRUD
         return entity.getQuestion() != null && !entity.getQuestion().isBlank() && entity.getQuestion().length() <= 255;
     }
 
-
     @Override
     protected <T, S> void updateFromDto(T entity, S dto) {
         if (dto instanceof QuestionDto questionDto && questionDto.getQuestion() != null) {
