@@ -5,6 +5,9 @@ import Navbar from "@/components/Navbar";
 import Login from "@pages/login/Login";
 import Mascotas from "@/components/Mascotas/Mascotas";
 import PetInformation from "@/components/petInformation/PetInformation";
+import Contacto from "@/pages/contacto/Contacto";
+import Nosotros from "@/pages/nosotros/Nosotros";
+import Footer from "@/components/Footer/Footer";
 
 export default function AppRouter() {
   return (
@@ -16,7 +19,10 @@ export default function AppRouter() {
         <Route element={<Login />} path="/Login" />
         <Route element={<Mascotas />} path="/Mascotas" />
         <Route element={<PetInformation />} path="/PetInformation" />
+        <Route element={<Contacto />} path="/Contacto" />
+        <Route element={<Nosotros />} path="/Nosotros" />
       </Routes>
+      {/* <Footer /> */}
     </>
   );
 }

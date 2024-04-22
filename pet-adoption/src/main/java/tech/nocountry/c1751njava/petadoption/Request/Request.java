@@ -6,9 +6,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import tech.nocountry.c1751njava.petadoption.Form.Form;
-import tech.nocountry.c1751njava.petadoption.Pet.Pet;
+import tech.nocountry.c1751njava.petadoption.Pet.Model.Pet;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @Builder
@@ -18,9 +19,8 @@ import java.util.List;
 @Table(name = "AM_REQUEST")
 public class Request {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) // or GenerationType.UUID if using UUID
-    @Column(name = "ID")
-    private String id;
+    @Column(name = "ID", updatable = false, nullable = false)
+    private String id = UUID.randomUUID().toString();
 
     @OneToOne
     @JoinColumn(name = "FORM_ID")

@@ -19,6 +19,7 @@ public class AuthService {
     private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
+
     public AuthResponse login(LoginRequest request) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
         UserDetails userDetails = userRepository.findByUsername(request.getUsername()).orElseThrow();
@@ -34,6 +35,8 @@ public class AuthService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .firstName(request.getFirstname())
                 .lastName(request.getLastname())
+                .isBanned(false)
+                .location(request.getLocation())
                 .role(Role.USER)
                 .build();
 

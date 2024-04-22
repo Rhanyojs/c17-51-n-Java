@@ -1,9 +1,17 @@
-import React from "react";
-
+import { Header } from "@/components/home/Header";
+import Nosotros from "../nosotros/Nosotros";
+import Contacto from "../contacto/Contacto";
+import Mascotas from "@/components/Mascotas/Mascotas";
+import Footer from "@/components/Footer/Footer";
 function Home() {
   return (
     <>
-      <div className="text-xl text-blue-500">Home</div>
+      <Header />
+      <Mascotas />
+
+      <Nosotros />
+      <Contacto />
+      <Footer/>
     </>
   );
 }

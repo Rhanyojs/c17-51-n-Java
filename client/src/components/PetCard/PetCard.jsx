@@ -12,13 +12,17 @@ function PetCard() {
           {/* <img src={petimage2} alt="" className="Image" />  */}
         </div>
         <div className="containerTitleDescipcion">
-          <h1 className="title">Canela</h1>
+          <div className="containerTitle">
+            <h1 className="title">Canela</h1>
+            <div className="span"></div>
+          </div>
+
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
             deserunt dola
           </p>
           <Link to="/PetInformation" className="Button">
-            Ver Detalles
+            Conoceme
           </Link>
         </div>
       </div>
