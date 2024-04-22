@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tech.nocountry.c1751njava.petadoption.Question.Dto.QuestionDto;
+import tech.nocountry.c1751njava.petadoption.Question.Dto.QuestionRequest;
 import tech.nocountry.c1751njava.petadoption.Question.Model.Question;
 import tech.nocountry.c1751njava.petadoption.Question.Services.QuestionService;
 
@@ -37,19 +37,19 @@ public class QuestionController {
     }
 
     @PostMapping
-    public ResponseEntity<Question> create(@RequestBody @Valid QuestionDto question) {
+    public ResponseEntity<Question> create(@RequestBody @Valid QuestionRequest question) {
         Question createdQuestion = questionService.create(question);
         return new ResponseEntity<>(createdQuestion, HttpStatus.CREATED);
     }
 
     @PostMapping("/all")
-    public ResponseEntity<List<Question>> createAll(@RequestBody @Valid List<QuestionDto> questions) {
+    public ResponseEntity<List<Question>> createAll(@RequestBody @Valid List<QuestionRequest> questions) {
         List<Question> createdQuestions = questionService.createAll(questions);
         return new ResponseEntity<>(createdQuestions, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Question> update(@RequestBody QuestionDto question, @PathVariable String id) {
+    public ResponseEntity<Question> update(@RequestBody QuestionRequest question, @PathVariable String id) {
         Question updatedQuestion = questionService.update(question, id);
         return new ResponseEntity<>(updatedQuestion, HttpStatus.OK);
     }

@@ -1,11 +1,13 @@
 package tech.nocountry.c1751njava.petadoption.Question.Dto.Mapper;
 
 import tech.nocountry.c1751njava.petadoption.Question.Dto.QuestionDto;
+import tech.nocountry.c1751njava.petadoption.Question.Dto.QuestionRequest;
 import tech.nocountry.c1751njava.petadoption.Question.Model.Question;
 
 public class QuestionMapper {
 
-    private QuestionMapper() {}
+    private QuestionMapper() {
+    }
 
     public static QuestionDto toDto(Question question) {
         return QuestionDto.builder()
@@ -23,4 +25,12 @@ public class QuestionMapper {
                 .answer(questionDto.getAnswer().trim())
                 .build();
     }
+
+    public static Question toQuestion(QuestionRequest questionRequest) {
+        return Question.builder()
+                .bodyQuestion(questionRequest.getQuestion().trim())
+                .answer(questionRequest.getAnswer().trim())
+                .build();
+    }
+
 }

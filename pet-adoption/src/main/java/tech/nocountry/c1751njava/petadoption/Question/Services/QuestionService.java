@@ -7,22 +7,23 @@ import org.springframework.stereotype.Service;
 import tech.nocountry.c1751njava.petadoption.AbstractEntityService;
 import tech.nocountry.c1751njava.petadoption.EntityCRUDService;
 import tech.nocountry.c1751njava.petadoption.Question.Dto.Mapper.QuestionMapper;
-import tech.nocountry.c1751njava.petadoption.Question.Dto.QuestionDto;
+import tech.nocountry.c1751njava.petadoption.Question.Dto.QuestionRequest;
 import tech.nocountry.c1751njava.petadoption.Question.Model.Question;
 import tech.nocountry.c1751njava.petadoption.Question.Repository.QuestionRepository;
+import tech.nocountry.c1751njava.petadoption.exception.custom.ValidationError;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class QuestionService extends AbstractEntityService implements EntityCRUDService<Question, QuestionDto> {
+public class QuestionService extends AbstractEntityService<Question, QuestionRequest> implements EntityCRUDService<Question, QuestionRequest> {
 
     private final QuestionRepository questionRepository;
 
     @Override
     @Transactional
-    public Question create(QuestionDto entity) {
+    public Question create(QuestionRequest entity) {
         if (!validate(entity)) {
             throw new IllegalArgumentException("Question is not valid");
         }
@@ -30,7 +31,7 @@ public class QuestionService extends AbstractEntityService implements EntityCRUD
     }
 
     @Transactional
-    public List<Question> createAll(List<QuestionDto> entities) {
+    public List<Question> createAll(List<QuestionRequest> entities) {
         List<Question> questionList = entities.stream()
                 .filter(this::validate)
                 .map(QuestionMapper::toQuestion)
@@ -40,7 +41,7 @@ public class QuestionService extends AbstractEntityService implements EntityCRUD
 
     @Override
     @Transactional
-    public Question update(QuestionDto entity, String id) {
+    public Question update(QuestionRequest entity, String id){
         validateId(id);
         Question question = getById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Question not found"));
@@ -78,14 +79,23 @@ public class QuestionService extends AbstractEntityService implements EntityCRUD
     }
 
     @Override
-    public boolean validate(QuestionDto entity) {
-        return entity.getQuestion() != null && !entity.getQuestion().isBlank() && entity.getQuestion().length() <= 255;
+    public boolean validate(QuestionRequest entity) {
+        return entity.getQuestion() != null && !entity.getQuestion().isBlank() && entity.getQuestion().length() <= 200;
     }
 
     @Override
-    protected <T, S> void updateFromDto(T entity, S dto) {
-        if (dto instanceof QuestionDto questionDto && questionDto.getQuestion() != null) {
-            ((Question) entity).setBodyQuestion(questionDto.getQuestion().trim());
+    protected void updateFromDto(Question entity, QuestionRequest dto) throws ValidationError {
+        if (dto.getQuestion() != null) {
+            if (dto.getQuestion().length() > 200 || dto.getQuestion().length() < 5) {
+                throw new ValidationError("Question must be between 5 and 200 characters", "Question");
+            }
+            entity.setBodyQuestion(dto.getQuestion());
+        }
+        if (dto.getAnswer() != null) {
+            if (dto.getAnswer().length() > 200 || dto.getAnswer().length() < 5) {
+                throw new ValidationError("Answer must be between 5 and 200 characters", "Answer");
+            }
+            entity.setAnswer(dto.getAnswer());
         }
     }
 }

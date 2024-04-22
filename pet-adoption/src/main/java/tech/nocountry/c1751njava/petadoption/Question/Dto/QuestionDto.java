@@ -10,10 +10,8 @@ public class QuestionDto {
 
     private String id;
 
-    @NotBlank(message = "Question cannot be blank")
     private String question;
 
-    @NotBlank(message = "Answer cannot be blank")
     private String answer;
 
     private String formId;

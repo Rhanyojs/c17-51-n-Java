@@ -1,6 +1,8 @@
 package tech.nocountry.c1751njava.petadoption;
 
-public abstract class AbstractEntityService {
+import tech.nocountry.c1751njava.petadoption.exception.custom.ValidationError;
+
+public abstract class AbstractEntityService<T, S> {
 
     protected void validateId(String id) {
         if (id == null || id.isEmpty()) {
@@ -8,5 +10,5 @@ public abstract class AbstractEntityService {
         }
     }
 
-    protected abstract <T, S> void updateFromDto(T entity, S dto);
+    protected abstract void updateFromDto(T entity, S dto) throws ValidationError;
 }
