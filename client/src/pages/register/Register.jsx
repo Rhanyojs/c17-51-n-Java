@@ -184,6 +184,7 @@ const Register = () => {
         <button type="submit" className="pet-button">
           Registrarse
         </button>
+      
       </form>
     </div>
   );
