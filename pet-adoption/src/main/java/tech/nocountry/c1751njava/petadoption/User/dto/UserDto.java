@@ -1,5 +1,7 @@
 package tech.nocountry.c1751njava.petadoption.User.dto;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 import tech.nocountry.c1751njava.petadoption.Pet.Model.Pet;
@@ -24,5 +26,6 @@ public class UserDto {
 
     private Boolean isBanned;
 
+    @JsonBackReference
     private List<Pet> pets;
 }
