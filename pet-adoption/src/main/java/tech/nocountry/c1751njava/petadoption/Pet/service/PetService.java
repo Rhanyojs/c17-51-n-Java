@@ -3,7 +3,7 @@ package tech.nocountry.c1751njava.petadoption.Pet.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tech.nocountry.c1751njava.petadoption.Pet.Model.Pet;
-import tech.nocountry.c1751njava.petadoption.Pet.Repository.dao.IPetDao;
+import tech.nocountry.c1751njava.petadoption.Pet.repository.dao.IPetDao;
 import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.PetDTO;
 import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.mapper.PetMapper;
 import tech.nocountry.c1751njava.petadoption.Pet.service.interfaces.IPetService;
@@ -42,5 +42,25 @@ public class PetService implements IPetService {
     @Override
     public List<PetDTO> findAllPets() {
         return petDao.findAllPets().stream().map(mapper::map).toList();
+    }
+
+    @Override
+    public List<PetDTO> findPetBySpecies(String species) {
+        return petDao.findPetBySpecies(species).stream().map(mapper::map).toList();
+    }
+
+    @Override
+    public List<PetDTO> findPetByBreed(String breed) {
+        return petDao.findPetByBreed(breed).stream().map(mapper::map).toList();
+    }
+
+    @Override
+    public List<PetDTO> findPetByStateTrue() {
+        return petDao.findPetByStateTrue().stream().map(mapper::map).toList();
+    }
+
+    @Override
+    public List<PetDTO> findPetByStateFalse() {
+        return petDao.findPetByStateFalse().stream().map(mapper::map).toList();
     }
 }

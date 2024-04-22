@@ -53,6 +53,30 @@ public class PetController {
         return ResponseEntity.ok(petDTOList);
     }
 
+    @GetMapping("/{species}")
+    public ResponseEntity<List<PetDTO>> findPetsBySpecies(@PathVariable String species) {
+        List<PetDTO> petDTOList = petService.findPetBySpecies(species);
+        return ResponseEntity.ok(petDTOList);
+    }
+
+    @GetMapping("/{breed}")
+    public ResponseEntity<List<PetDTO>> findPetsByBreed(@PathVariable String breed) {
+        List<PetDTO> petDTOList = petService.findPetByBreed(breed);
+        return ResponseEntity.ok(petDTOList);
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<PetDTO>> findPetsByStatusTrue() {
+        List<PetDTO> petDTOList = petService.findPetByStateTrue();
+        return ResponseEntity.ok(petDTOList);
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<PetDTO>> findPetsByStatusFalse() {
+        List<PetDTO> petDTOList = petService.findPetByStateFalse();
+        return ResponseEntity.ok(petDTOList);
+    }
+
     @PutMapping("/update/{id}")
     public ResponseEntity<String> updatePet(@PathVariable String id, @RequestBody PetDTO petDTO) {
         Optional<PetDTO> optionalPetDTO = petService.findPetById(id);

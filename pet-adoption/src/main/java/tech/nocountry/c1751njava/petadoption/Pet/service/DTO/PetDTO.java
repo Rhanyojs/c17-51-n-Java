@@ -19,5 +19,6 @@ public class PetDTO {
     private int age;
     private String ubication;
     private boolean isState;
-
+    private String species;
+    private String breed;
 }

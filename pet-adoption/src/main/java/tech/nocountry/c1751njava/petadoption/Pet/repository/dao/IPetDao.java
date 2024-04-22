@@ -1,4 +1,4 @@
-package tech.nocountry.c1751njava.petadoption.Pet.Repository.dao;
+package tech.nocountry.c1751njava.petadoption.Pet.repository.dao;
 
 import tech.nocountry.c1751njava.petadoption.Pet.Model.Pet;
 
@@ -14,6 +14,15 @@ public interface IPetDao {
     Optional<Pet> findPetById(String id);
 
     List<Pet> findAllPets();
+    List<Pet> findPetBySpecies(String species);
+
+    List<Pet> findPetByBreed(String breed);
+
+    List<Pet> findPetByStateTrue();
+
+    List<Pet> findPetByStateFalse();
+
+
 
 
 }
