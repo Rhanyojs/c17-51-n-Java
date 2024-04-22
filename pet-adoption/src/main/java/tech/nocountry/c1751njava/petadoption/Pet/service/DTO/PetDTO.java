@@ -1,6 +1,5 @@
 package tech.nocountry.c1751njava.petadoption.Pet.service.DTO;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +14,7 @@ import tech.nocountry.c1751njava.petadoption.User.dto.UserDto;
 public class PetDTO {
     @JsonManagedReference
     private UserDto user;
+    public String name;
     private String description;
     private int age;
     private String ubication;

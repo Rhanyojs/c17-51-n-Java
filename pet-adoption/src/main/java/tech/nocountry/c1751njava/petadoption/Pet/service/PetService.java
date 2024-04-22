@@ -7,7 +7,6 @@ import tech.nocountry.c1751njava.petadoption.Pet.Repository.dao.IPetDao;
 import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.PetDTO;
 import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.mapper.PetMapper;
 import tech.nocountry.c1751njava.petadoption.Pet.service.interfaces.IPetService;
-import tech.nocountry.c1751njava.petadoption.User.dto.mapper.UserMapper;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,13 +25,7 @@ public class PetService implements IPetService {
 
     @Override
     public String savePet(PetDTO petDto) {
-        final Pet pet = Pet.builder()
-                .user(new UserMapper().dtoToUser(petDto.getUser()))
-                .description(petDto.getDescription())
-                .age(petDto.getAge())
-                .ubication(petDto.getUbication())
-                .isState(petDto.isState())
-                .build();
+        final Pet pet = mapper.dtoToPet(petDto);
         return petDao.savePet(pet).getId();
     }
 
