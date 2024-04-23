@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Nosotros.scss";
 import imgNosotros from "../../assets/images/imagen-nosotros.jpg";
 import Huellas from "@/components/icons/Huellas";
@@ -10,13 +10,12 @@ const Nosotros = () => {
         <div className="nosotros__contenido">
           <h1 className="title-principal">Por qué elegirnos</h1>
           <h2 className="title-secundario">
-            Algunas de las razones por las que la gente prefiere nuestros
-            servicios
+            Algunas de las razones por las que la gente prefiere nuestros servicios
           </h2>
           <p className="parrafo-nosotros">
-            Desde nuestra fundación en 1999, hemos trabajado para brindar los
-            mejores servicios de cuidado para sus perros y gatos. Además, los
-            dueños de mascotas en todo Estados Unidos eligen nuestro salón para:
+            Desde nuestra fundación en 1999, hemos trabajado para brindar los mejores servicios de
+            cuidado para sus perros y gatos. Además, los dueños de mascotas en todo Estados Unidos
+            eligen nuestro salón para:
           </p>
 
           <div className="container-beneficios">
@@ -26,15 +25,11 @@ const Nosotros = () => {
             </div>
             <div className="items-beneficios">
               <Huellas />
-              <p className="text-n">
-                Equipos de alta calidad y totalmente estériles
-              </p>
+              <p className="text-n">Equipos de alta calidad y totalmente estériles</p>
             </div>
             <div className="items-beneficios">
               <Huellas />
-              <p className="text-n">
-                Diferentes tipos de aseo para tus mascotas
-              </p>
+              <p className="text-n">Diferentes tipos de aseo para tus mascotas</p>
             </div>
             <div className="items-beneficios">
               <Huellas />
@@ -47,11 +42,11 @@ const Nosotros = () => {
                 width="40"
                 height="40"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="#000"
                 fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M14.7 13.5c-1.1 -2 -1.441 -2.5 -2.7 -2.5c-1.259 0 -1.736 .755 -2.836 2.747c-.942 1.703 -2.846 1.845 -3.321 3.291c-.097 .265 -.145 .677 -.143 .962c0 1.176 .787 2 1.8 2c1.259 0 3 -1 4.5 -1s3.241 1 4.5 1c1.013 0 1.8 -.823 1.8 -2c0 -.285 -.049 -.697 -.146 -.962c-.475 -1.451 -2.512 -1.835 -3.454 -3.538z" />
