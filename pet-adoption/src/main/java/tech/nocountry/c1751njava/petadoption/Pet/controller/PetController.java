@@ -4,7 +4,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.PetDTO;
 import tech.nocountry.c1751njava.petadoption.Pet.service.PetService;
-import tech.nocountry.c1751njava.petadoption.Shelter.Services.ShelterServicesImpl;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -22,7 +21,7 @@ public class PetController {
     }
 
     @PostMapping
-    ResponseEntity<?> savePet(@RequestBody PetDTO petDTO) throws URISyntaxException {
+    public ResponseEntity<String> savePet(@RequestBody PetDTO petDTO) throws URISyntaxException {
         //Verificar como resolver el tema de verificaciones
         //Implementacion Temporal
         if (petDTO.getDescription().isEmpty()) {
@@ -32,7 +31,7 @@ public class PetController {
         return ResponseEntity.created(new URI("/api/pets/" + petId)).build();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{petId}") //la variable de la URL debe coincidir con el parametro
     public ResponseEntity<String> deletePetById(@PathVariable String petId) {
         Optional<PetDTO> optionalPet = petService.findPetById(petId);
         if (optionalPet.isPresent()) {
@@ -41,7 +40,7 @@ public class PetController {
         return ResponseEntity.badRequest().build();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{petId}")
     public ResponseEntity<PetDTO> findPetById(@PathVariable String petId) {
         Optional<PetDTO> optionalPetDTO = petService.findPetById(petId);
         return optionalPetDTO.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
@@ -86,8 +85,6 @@ public class PetController {
         }
         return ResponseEntity.badRequest().build();
     }
-
-
 
 
 }
