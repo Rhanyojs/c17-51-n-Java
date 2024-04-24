@@ -1,12 +1,16 @@
 package tech.nocountry.c1751njava.petadoption.Pet.Model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import tech.nocountry.c1751njava.petadoption.ImageUpload.Model.Image;
 import tech.nocountry.c1751njava.petadoption.Request.Request;
 import tech.nocountry.c1751njava.petadoption.User.Model.User;
+
+import java.util.List;
 
 @Data
 @Builder
@@ -35,4 +39,8 @@ public class Pet {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "REQUEST_ID")
     private Request request;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "pet")
+    private List<Image> images;
+
 }

@@ -2,10 +2,13 @@ package tech.nocountry.c1751njava.petadoption.Pet.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import tech.nocountry.c1751njava.petadoption.ImageUpload.Model.Image;
+import tech.nocountry.c1751njava.petadoption.ImageUpload.Services.ImageUploadService;
 import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.PetDTO;
 import tech.nocountry.c1751njava.petadoption.Pet.service.PetService;
-import tech.nocountry.c1751njava.petadoption.Shelter.Services.ShelterServicesImpl;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -16,9 +19,11 @@ import java.util.Optional;
 public class PetController {
 
     private final PetService petService;
+    private final ImageUploadService imageUploadService;
 
-    public PetController(PetService petService) {
+    public PetController(PetService petService, ImageUploadService imageUploadService) {
         this.petService = petService;
+        this.imageUploadService = imageUploadService;
     }
 
     @PostMapping
@@ -32,7 +37,7 @@ public class PetController {
         return ResponseEntity.created(new URI("/api/pets/" + petId)).build();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{petId}")
     public ResponseEntity<String> deletePetById(@PathVariable String petId) {
         Optional<PetDTO> optionalPet = petService.findPetById(petId);
         if (optionalPet.isPresent()) {
@@ -41,7 +46,7 @@ public class PetController {
         return ResponseEntity.badRequest().build();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{petId}")
     public ResponseEntity<PetDTO> findPetById(@PathVariable String petId) {
         Optional<PetDTO> optionalPetDTO = petService.findPetById(petId);
         return optionalPetDTO.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
@@ -63,7 +68,11 @@ public class PetController {
         return ResponseEntity.badRequest().build();
     }
 
-
+    @PostMapping("/upload")
+    public ResponseEntity<Image> uploadImage(@RequestParam("image") MultipartFile file) throws IOException {
+        Image image = imageUploadService.uploadImage(file);
+        return ResponseEntity.ok(image);
+    }
 
 
 }
