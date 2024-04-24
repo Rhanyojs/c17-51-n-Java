@@ -1,4 +1,4 @@
-package tech.nocountry.c1751njava.petadoption.Question;
+package tech.nocountry.c1751njava.petadoption.Question.Model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,8 +18,10 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "ID")
     private String id;
+
     @Column(name = "BODYQUESTION")
     private String bodyQuestion;
+
     @Column(name = "ANSER")
     private String answer;
 

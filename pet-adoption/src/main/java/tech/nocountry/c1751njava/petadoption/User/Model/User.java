@@ -1,5 +1,6 @@
 package tech.nocountry.c1751njava.petadoption.User.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,13 +26,13 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "ID")
     private String id;
-    @Column(nullable = false, unique = true, name = "USERNAME")
+    @Column(nullable = false, unique = true, name = "USERNAME", length = 50)
     private String username;
     @Column(name = "PASSWORD")
     private String password;
-    @Column(name = "FIRSTNAME")
+    @Column(name = "FIRSTNAME", length = 100)
     private String firstName;
-    @Column(name = "LASTNAME")
+    @Column(name = "LASTNAME", length = 100)
     private String lastName;
     @Enumerated(EnumType.STRING)
     @Column(name = "ROLE")
@@ -39,8 +40,9 @@ public class User implements UserDetails {
     @Column(name = "LOCATION", nullable = true)
     private String location;
     @Column(name = "IS_BANNED", nullable = true)
-    private Boolean isBanned;
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private Boolean isBanned = false;
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Pet> petList;
 
     @Override

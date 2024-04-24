@@ -3,7 +3,7 @@
 export default function WhyUs() {
   return (
     <div>
-      <section className="py-12">
+      <section className="py-12 lg:pt-[80px] lg:pb-[120px] ">
         <div className="container mx-auto space-y-8 text-[#4B5563] ">
           <h2 className="text-3xl font-bold text-center">Refugios de Animales</h2>
           <p className="text-xl text-center">
