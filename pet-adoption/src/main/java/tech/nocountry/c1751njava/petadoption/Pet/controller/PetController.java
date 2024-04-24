@@ -19,7 +19,7 @@ public class PetController {
         this.petService = petService;
     }
 
-    @PostMapping(consumes = "application/json")
+    @PostMapping()
     public ResponseEntity<String> savePet(@RequestBody PetDTO petDTO) {
         //Verificar como resolver el tema de verificaciones
         //Implementacion Temporal
