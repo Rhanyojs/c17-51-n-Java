@@ -32,6 +32,10 @@ public class Pet {
     private String ubication;
     @Column(name = "STATE")
     private boolean isState;
+    @Column(name = "SPECIES")
+    private String species;
+    @Column(name = "BREED")
+    private String breed;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "REQUEST_ID")
     private Request request;

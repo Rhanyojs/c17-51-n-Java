@@ -17,6 +17,8 @@ public class PetMapper implements IMapper<Pet, PetDTO> {
         petDTO.setAge(in.getAge());
         petDTO.setUbication(in.getUbication());
         petDTO.setState(in.isState());
+        petDTO.setSpecies(in.getSpecies());
+        petDTO.setBreed(in.getBreed());
         return petDTO;
     }
 
@@ -28,6 +30,8 @@ public class PetMapper implements IMapper<Pet, PetDTO> {
         pet.setAge(petDTO.getAge());
         pet.setUbication(petDTO.getUbication());
         pet.setState(petDTO.isState());
+        pet.setSpecies(petDTO.getSpecies());
+        pet.setBreed(petDTO.getBreed());
         return pet;
     }
 
