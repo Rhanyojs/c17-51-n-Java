@@ -11,10 +11,10 @@ public interface IPetService {
     Optional<PetDTO> findPetById(String id);
     List<PetDTO> findAllPets();
 
-    List<PetDTO> findPetBySpecies(String species);
-    List<PetDTO> findPetByBreed(String breed);
-    List<PetDTO> findPetByStateTrue();
-    List<PetDTO> findPetByStateFalse();
+    List<PetDTO> findPetBySpeciesAndBreedAndAge(Optional<String> species, Optional<String> breed, Optional<Integer> age);
+
+
+
 
 
 }

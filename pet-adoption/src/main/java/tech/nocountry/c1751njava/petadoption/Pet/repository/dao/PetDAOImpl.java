@@ -1,6 +1,7 @@
 package tech.nocountry.c1751njava.petadoption.Pet.repository.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 import tech.nocountry.c1751njava.petadoption.Pet.Model.Pet;
 import tech.nocountry.c1751njava.petadoption.Pet.repository.PetRepository;
@@ -36,22 +37,11 @@ public class PetDAOImpl implements IPetDao {
     }
 
     @Override
-    public List<Pet> findPetBySpecies(String species) {
-        return petRepository.findPetBySpecies(species);
+    public List<Pet> findPetBySpeciesAndBreedAndAge(Optional<String> species, Optional<String> breed, Optional<Integer> age) {
+        return petRepository.findPetBySpeciesAndBreedAndAge(species,breed,age);
     }
 
-    @Override
-    public List<Pet> findPetByBreed(String breed) {
-        return petRepository.findPetByBreed(breed);
-    }
 
-    @Override
-    public List<Pet> findPetByStateTrue() {
-        return petRepository.findPetByStateTrue();
-    }
 
-    @Override
-    public List<Pet> findPetByStateFalse() {
-        return petRepository.findPetByStateFalse();
-    }
+
 }

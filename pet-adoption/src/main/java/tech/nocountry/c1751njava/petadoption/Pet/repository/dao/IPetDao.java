@@ -1,5 +1,6 @@
 package tech.nocountry.c1751njava.petadoption.Pet.repository.dao;
 
+import org.springframework.data.domain.Page;
 import tech.nocountry.c1751njava.petadoption.Pet.Model.Pet;
 
 import java.util.List;
@@ -14,13 +15,7 @@ public interface IPetDao {
     Optional<Pet> findPetById(String id);
 
     List<Pet> findAllPets();
-    List<Pet> findPetBySpecies(String species);
-
-    List<Pet> findPetByBreed(String breed);
-
-    List<Pet> findPetByStateTrue();
-
-    List<Pet> findPetByStateFalse();
+    List<Pet> findPetBySpeciesAndBreedAndAge(Optional<String> species, Optional<String> breed, Optional<Integer> age);
 
 
 
