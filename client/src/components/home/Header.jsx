@@ -74,7 +74,7 @@ export function Header() {
                 </Select>
 
                 {/* <Input placeholder="Date" type="date" /> */}
-                <Button className="w-100 bg-yellow-500 text-white">
+                <Button className="w-100 bg-yellow-300 hover:bg-purple-500 text-black hover:text-white">
                   Buscar ahora
                 </Button>
               </form>
