@@ -1,5 +1,7 @@
 package tech.nocountry.c1751njava.petadoption;
 
+import tech.nocountry.c1751njava.petadoption.exception.custom.ValidationError;
+
 import java.util.List;
 import java.util.Optional;
 

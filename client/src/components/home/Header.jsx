@@ -56,11 +56,17 @@ export function Header() {
                 </Select>
                 <Select>
                   <SelectTrigger id="breed">
-                    <SelectValue placeholder="Raza" />
+                    <SelectValue placeholder="Ubicación" />
                   </SelectTrigger>
                   <SelectContent position="popper">
-                    <SelectItem value="labrador">Labrador</SelectItem>
-                    <SelectItem value="persian">Persian Cat</SelectItem>
+                    <SelectItem value="labrador">Ciudad de México</SelectItem>
+                    <SelectItem value="persian">Guadalajara</SelectItem>
+                    <SelectItem value="labrador">Ciudad de México</SelectItem>
+                    <SelectItem value="persian">Monterrey</SelectItem>
+                    <SelectItem value="labrador">Puebla</SelectItem>
+                    <SelectItem value="persian">Tijuana</SelectItem>
+                    <SelectItem value="labrador">Ciudad de México</SelectItem>
+                    <SelectItem value="persian">Guadalajara</SelectItem>
                   </SelectContent>
                 </Select>
                 <Select>
@@ -68,13 +74,17 @@ export function Header() {
                     <SelectValue placeholder="Edad" />
                   </SelectTrigger>
                   <SelectContent position="popper">
-                    <SelectItem value="puppy">Cachorro</SelectItem>
-                    <SelectItem value="adult">Adulto</SelectItem>
+                    <SelectItem value="puppy">1 años</SelectItem>
+                    <SelectItem value="adult">2 años</SelectItem>
+                    <SelectItem value="puppy">3 años</SelectItem>
+                    <SelectItem value="adult">4 años</SelectItem>
+                    <SelectItem value="puppy">5 años</SelectItem>
+                    <SelectItem value="adult">6 años</SelectItem>
                   </SelectContent>
                 </Select>
 
                 {/* <Input placeholder="Date" type="date" /> */}
-                <Button className="w-100 bg-yellow-500 text-white">
+                <Button className="w-100 bg-yellow-300 hover:bg-purple-500 text-black hover:text-white">
                   Buscar ahora
                 </Button>
               </form>

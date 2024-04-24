@@ -29,6 +29,12 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(ValidationError.class)
+    public ResponseEntity<ErrorResponse> customValidationErrorHandling(ValidationError e) {
+        List<ValidationError> errors = List.of(new ValidationError(e.getMessage(), e.getFieldName()));
+        ErrorResponse errorResponse = new ErrorResponse(errors);
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
 
     @ExceptionHandler({Exception.class})
     public ResponseEntity<String> handleException(Exception e) {
