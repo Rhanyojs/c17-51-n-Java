@@ -74,8 +74,12 @@ export function Header() {
                     <SelectValue placeholder="Edad" />
                   </SelectTrigger>
                   <SelectContent position="popper">
-                    <SelectItem value="puppy">Cachorro</SelectItem>
-                    <SelectItem value="adult">Adulto</SelectItem>
+                    <SelectItem value="puppy">1 años</SelectItem>
+                    <SelectItem value="adult">2 años</SelectItem>
+                    <SelectItem value="puppy">3 años</SelectItem>
+                    <SelectItem value="adult">4 años</SelectItem>
+                    <SelectItem value="puppy">5 años</SelectItem>
+                    <SelectItem value="adult">6 años</SelectItem>
                   </SelectContent>
                 </Select>
 
