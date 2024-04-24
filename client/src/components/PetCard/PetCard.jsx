@@ -1,5 +1,3 @@
-// PetCard.jsx
-
 import React, { useState } from "react";
 import "./PetCard.scss";
 import Button from "react-bootstrap/Button";
@@ -18,14 +16,12 @@ function PetCard({ pet }) {
   };
 
   const adoptPet = () => {
-    // Aquí mostramos el SweetAlert2
     Swal.fire({
       title: "¡Mascota Adoptada!",
       icon: "success",
       text: `¡Has adoptado a ${pet.name}!`,
       confirmButtonText: "Aceptar",
     }).then((result) => {
-      // Cerramos el modal si el usuario hace clic en "Aceptar"
       if (result.isConfirmed) {
         closeModal();
       }
@@ -35,8 +31,7 @@ function PetCard({ pet }) {
   return (
     <div className="card">
       <div className="containerImages">
-        {/* Aquí puedes agregar la lógica para mostrar la imagen de la mascota */}
-        {/* Por ejemplo: <img src={pet.image} alt="" className="Image" /> */}
+        {/*  <img src={pet.image} alt="" className="Image" /> */}
       </div>
       <div className="containerTitleDescipcion">
         <div className="containerTitle">
