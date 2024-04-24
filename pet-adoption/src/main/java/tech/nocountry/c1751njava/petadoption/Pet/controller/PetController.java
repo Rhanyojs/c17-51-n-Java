@@ -1,12 +1,11 @@
 package tech.nocountry.c1751njava.petadoption.Pet.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.PetDTO;
 import tech.nocountry.c1751njava.petadoption.Pet.service.PetService;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,15 +19,15 @@ public class PetController {
         this.petService = petService;
     }
 
-    @PostMapping
-    public ResponseEntity<String> savePet(@RequestBody PetDTO petDTO) throws URISyntaxException {
+    @PostMapping(consumes = "application/json")
+    public ResponseEntity<String> savePet(@RequestBody PetDTO petDTO) {
         //Verificar como resolver el tema de verificaciones
         //Implementacion Temporal
         if (petDTO.getDescription().isEmpty()) {
             return ResponseEntity.badRequest().build();
         }
         final String petId = petService.savePet(petDTO);
-        return ResponseEntity.created(new URI("/api/pets/" + petId)).build();
+        return new ResponseEntity<>(petId, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{petId}") //la variable de la URL debe coincidir con el parametro
@@ -52,20 +51,13 @@ public class PetController {
         return ResponseEntity.ok(petDTOList);
     }
 
-    @GetMapping("/")
-    public ResponseEntity<List<PetDTO>> findPetBySpeciesAndBreedAndAge(@RequestParam(name = "species") String species,
-                                                          @RequestParam(name = "breed") String breed,
-                                                          @RequestParam(name = "age") int age) {
-        List<PetDTO> petDTOList = petService.findPetBySpeciesAndBreedAndAge(Optional.of(species) ,Optional.of(breed), Optional.of(age));
+    @GetMapping("/search")
+    public ResponseEntity<List<PetDTO>> findPetBySpeciesAndBreedAndAge(@RequestParam(name = "species", required = false) String species,
+                                                                       @RequestParam(name = "breed", required = false) String breed,
+                                                                       @RequestParam(name = "age", required = false) Integer age) {
+        List<PetDTO> petDTOList = petService.findPetBySpeciesAndBreedAndAge(Optional.ofNullable(species), Optional.ofNullable(breed), Optional.ofNullable(age));
         return ResponseEntity.ok(petDTOList);
     }
-
-    /*@GetMapping("/{breed}")
-    public ResponseEntity<List<PetDTO>> findPetsByBreed(@PathVariable String breed) {
-        List<PetDTO> petDTOList = petService.findPetByBreed(breed);
-        return ResponseEntity.ok(petDTOList);
-    }*/
-
 
     @PutMapping("/update/{id}")
     public ResponseEntity<String> updatePet(@PathVariable String id, @RequestBody PetDTO petDTO) {

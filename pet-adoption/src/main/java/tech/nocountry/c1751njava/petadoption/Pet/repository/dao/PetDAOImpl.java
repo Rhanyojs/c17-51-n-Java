@@ -38,7 +38,7 @@ public class PetDAOImpl implements IPetDao {
 
     @Override
     public List<Pet> findPetBySpeciesAndBreedAndAge(Optional<String> species, Optional<String> breed, Optional<Integer> age) {
-        return petRepository.findPetBySpeciesAndBreedAndAge(species,breed,age);
+        return petRepository.findPetBySpeciesAndBreedAndAge(species.orElse(null),breed.orElse(null),age.orElse(null));
     }
 
 
