@@ -25,6 +25,7 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    console.log(data);
     // Aquí puedes realizar tus operaciones asíncronas, como una petición a una API
     // Por ahora, mostraremos un SweetAlert y luego resetearemos el formulario
     await Swal.fire({
@@ -171,9 +172,9 @@ const Register = () => {
             id="options"
           >
             <option value="">Selecciona...</option>
-            <option value="opcion1">Persona</option>
-            <option value="opcion2">Refugio</option>
-            <option value="opcion3">Administrador</option>
+            <option value="Persona">Persona</option>
+            <option value="Refugio">Refugio</option>
+            <option value="Administrador">Administrador</option>
           </select>
           {errors.tipoDeUsuario &&
             (touchedFields.tipoDeUsuario ||
@@ -184,7 +185,6 @@ const Register = () => {
         <button type="submit" className="pet-button">
           Registrarse
         </button>
-      
       </form>
     </div>
   );
