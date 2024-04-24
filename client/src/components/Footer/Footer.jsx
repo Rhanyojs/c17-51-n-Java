@@ -1,10 +1,9 @@
-import React from "react";
 import "./Footer.scss";
 
 const Footer = () => {
   return (
-    <footer className="pie_pagina">
-      <section className="pie_pagina__items">
+    <footer className="flex flex-col lg:flex-row gap-[30px] lg:gap-0 items-center lg:items-end  text-center lg:text-start h-full justify-between !m-[0] p-8 border-t-[1px] border-gray-200 overflow-x-hidden">
+      <section className="flex flex-col w-[200px]">
         <h2 className="pie_pagina__p">adopta.me@gmail.org</h2>
         <ul className="pie_pagina__lista">
           <li>
@@ -24,7 +23,7 @@ const Footer = () => {
           </li>
         </ul>
       </section>
-      <section className="pie_pagina__servicios">
+      <section className="flex flex-col w-[max-content]">
         <h2 className="pie_pagina__titulo">Servicios</h2>
         <ul className="pie_pagina__lista">
           <li>
@@ -44,7 +43,7 @@ const Footer = () => {
           </li>
         </ul>
       </section>
-      <section className="pie_pagina__contato">
+      <section className="flex flex-col w-[max-content]">
         <h2 className="pie_pagina__titulo">Suscribete!</h2>
         <ul className="pie_pagina__lista">
           <fieldset className="formulario__campo">
@@ -62,10 +61,9 @@ const Footer = () => {
           </fieldset>
         </ul>
       </section>
-      <section className="pie_pagina__redes-sociales">
-        <ul className="pie_pagina__lista redes-sociales__lista">
+      <section id="redes_sociales" className="flex justify-end items-end">
+        <ul className="flex  gap-3">
           <svg
-            xmlns="http://www.w3.org/2000/svg"
             className="icon icon-tabler icon-tabler-brand-facebook"
             width="40"
             height="40"
