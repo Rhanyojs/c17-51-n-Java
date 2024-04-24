@@ -56,11 +56,17 @@ export function Header() {
                 </Select>
                 <Select>
                   <SelectTrigger id="breed">
-                    <SelectValue placeholder="Raza" />
+                    <SelectValue placeholder="Ubicación" />
                   </SelectTrigger>
                   <SelectContent position="popper">
-                    <SelectItem value="labrador">Labrador</SelectItem>
-                    <SelectItem value="persian">Persian Cat</SelectItem>
+                    <SelectItem value="labrador">Ciudad de México</SelectItem>
+                    <SelectItem value="persian">Guadalajara</SelectItem>
+                    <SelectItem value="labrador">Ciudad de México</SelectItem>
+                    <SelectItem value="persian">Monterrey</SelectItem>
+                    <SelectItem value="labrador">Puebla</SelectItem>
+                    <SelectItem value="persian">Tijuana</SelectItem>
+                    <SelectItem value="labrador">Ciudad de México</SelectItem>
+                    <SelectItem value="persian">Guadalajara</SelectItem>
                   </SelectContent>
                 </Select>
                 <Select>
