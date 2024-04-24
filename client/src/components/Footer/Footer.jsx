@@ -1,4 +1,3 @@
-import React from "react";
 import "./Footer.scss";
 
 const Footer = () => {
@@ -11,8 +10,14 @@ const Footer = () => {
             <a href="#" className="pie_pagina__link">
               Pasaje Libertador Guzmán 876
             </a>
+            <a href="#" className="pie_pagina__link">
+              Pasaje Libertador Guzmán 876
+            </a>
           </li>
           <li>
+            <a href="#" className="pie_pagina__link">
+              Misiones, Argentina.
+            </a>
             <a href="#" className="pie_pagina__link">
               Misiones, Argentina.
             </a>
@@ -21,13 +26,19 @@ const Footer = () => {
             <a href="#" className="pie_pagina__number">
               + 54 035115678921
             </a>
+            <a href="#" className="pie_pagina__number">
+              + 54 035115678921
+            </a>
           </li>
         </ul>
       </section>
-      <section className="pie_pagina__servicios">
+      <section className="flex flex-col w-[max-content]">
         <h2 className="pie_pagina__titulo">Servicios</h2>
         <ul className="pie_pagina__lista">
           <li>
+            <a href="#" className="pie_pagina__link">
+              Adopción
+            </a>
             <a href="#" className="pie_pagina__link">
               Adopción
             </a>
@@ -36,15 +47,21 @@ const Footer = () => {
             <a href="#" className="pie_pagina__link">
               Baño y Aseo
             </a>
+            <a href="#" className="pie_pagina__link">
+              Baño y Aseo
+            </a>
           </li>
           <li>
+            <a href="#" className="pie_pagina__link">
+              Corte de pelo
+            </a>
             <a href="#" className="pie_pagina__link">
               Corte de pelo
             </a>
           </li>
         </ul>
       </section>
-      <section className="pie_pagina__contato">
+      <section className="flex flex-col w-[max-content]">
         <h2 className="pie_pagina__titulo">Suscribete!</h2>
         <ul className="pie_pagina__lista">
           <fieldset className="formulario__campo">
@@ -132,5 +149,8 @@ const Footer = () => {
     </footer>
   );
 };
+  );
+};
 
 export default Footer;
+
