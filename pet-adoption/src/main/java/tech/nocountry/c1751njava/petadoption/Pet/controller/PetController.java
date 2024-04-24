@@ -1,5 +1,6 @@
 package tech.nocountry.c1751njava.petadoption.Pet.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -8,9 +9,6 @@ import tech.nocountry.c1751njava.petadoption.ImageUpload.Services.ImageUploadSer
 import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.PetDTO;
 import tech.nocountry.c1751njava.petadoption.Pet.service.PetService;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,15 +24,15 @@ public class PetController {
         this.imageUploadService = imageUploadService;
     }
 
-    @PostMapping
-    ResponseEntity<?> savePet(@RequestBody PetDTO petDTO) throws URISyntaxException {
-        //Verificar como resolver el tema de verificaciones
-        //Implementacion Temporal
+    @PostMapping()
+    public ResponseEntity<String> savePet(@RequestBody PetDTO petDTO) {
+        // Verificar como resolver el tema de verificaciones
+        // Implementación Temporal
         if (petDTO.getDescription().isEmpty()) {
             return ResponseEntity.badRequest().build();
         }
         final String petId = petService.savePet(petDTO);
-        return ResponseEntity.created(new URI("/api/pets/" + petId)).build();
+        return new ResponseEntity<>(petId, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{petId}")
@@ -58,6 +56,16 @@ public class PetController {
         return ResponseEntity.ok(petDTOList);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<PetDTO>> findPetBySpeciesAndBreedAndAge(
+            @RequestParam(name = "species", required = false) String species,
+            @RequestParam(name = "breed", required = false) String breed,
+            @RequestParam(name = "age", required = false) Integer age) {
+        List<PetDTO> petDTOList = petService.findPetBySpeciesAndBreedAndAge(Optional.ofNullable(species),
+                Optional.ofNullable(breed), Optional.ofNullable(age));
+        return ResponseEntity.ok(petDTOList);
+    }
+
     @PutMapping("/update/{id}")
     public ResponseEntity<String> updatePet(@PathVariable String id, @RequestBody PetDTO petDTO) {
         Optional<PetDTO> optionalPetDTO = petService.findPetById(id);
@@ -73,6 +81,4 @@ public class PetController {
         Image image = imageUploadService.uploadImage(file);
         return ResponseEntity.ok(image);
     }
-
-
 }

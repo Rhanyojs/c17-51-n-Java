@@ -11,5 +11,10 @@ public interface IPetService {
     Optional<PetDTO> findPetById(String id);
     List<PetDTO> findAllPets();
 
+    List<PetDTO> findPetBySpeciesAndBreedAndAge(Optional<String> species, Optional<String> breed, Optional<Integer> age);
+
+
+
+
 
 }
