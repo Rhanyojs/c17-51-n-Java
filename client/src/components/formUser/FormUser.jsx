@@ -21,9 +21,10 @@ function FormUser() {
       text: "En breve nos vamos a contactar con vos para contarte como sigue la adopción.",
     });
     reset();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
     navigate("/Home");
   };
+  window.scrollTo({ top: 0, behavior: "smooth" });
   return (
     <>
       <div className="FormUser-container">
