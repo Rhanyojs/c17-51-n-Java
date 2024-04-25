@@ -15,7 +15,6 @@ Nuestros refugios asociados trabajan incansablemente para rescatar y cuidar a es
 | Ángeles                           | Diseñadora UX/UI      |
 | Daiana Trinidad Puig              | Desarrollador Frontend|
 | Jesús Antonio García Montalvo     | Desarrollador Frontend|
-| Matias K Velazquez                | Desarrollador Frontend|
 | Pedro Martínez                    | Desarrollador Frontend|
 | Brandon Alfaro Rollano            | Desarrollador Backend |
 | Dualbert Morelo                   | Desarrollador Backend |
