@@ -1,6 +1,7 @@
 package tech.nocountry.c1751njava.petadoption.Pet.repository.dao;
 
 import tech.nocountry.c1751njava.petadoption.Pet.Model.Pet;
+import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.PetFilters;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +16,6 @@ public interface IPetDao {
 
     List<Pet> findAllPets();
 
-    List<Pet> findPetBySpeciesAndBreedAndAge(Optional<String> species, Optional<String> breed, Optional<Integer> age);
+    List<Pet> findPetByFilters(PetFilters petFilters);
 
 }

@@ -1,11 +1,11 @@
 package tech.nocountry.c1751njava.petadoption.Pet.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import tech.nocountry.c1751njava.petadoption.Pet.Model.Pet;
 import tech.nocountry.c1751njava.petadoption.Pet.repository.dao.IPetDao;
 import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.PetDTO;
+import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.PetFilters;
 import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.mapper.PetMapper;
 import tech.nocountry.c1751njava.petadoption.Pet.service.interfaces.IPetService;
 
@@ -25,9 +25,9 @@ public class PetService implements IPetService {
     }
 
     @Override
-    public String savePet(PetDTO petDto) {
+    public Pet savePet(PetDTO petDto) {
         final Pet pet = mapper.dtoToPet(petDto);
-        return petDao.savePet(pet).getId();
+        return petDao.savePet(pet);
     }
 
     @Override
@@ -46,9 +46,9 @@ public class PetService implements IPetService {
     }
 
     @Override
-    public List<PetDTO> findPetBySpeciesAndBreedAndAge(Optional<String> species, Optional<String> breed, Optional<Integer> age) {
+    public List<PetDTO> findPetByFilters(PetFilters petFilters) {
         //Page pageable
-        return petDao.findPetBySpeciesAndBreedAndAge(species, breed, age).stream().map(mapper::map).toList();
+        return petDao.findPetByFilters(petFilters).stream().map(mapper::map).toList();
     }
 
 }

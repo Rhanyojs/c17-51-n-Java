@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import tech.nocountry.c1751njava.petadoption.ImageUpload.Model.Image;
 import tech.nocountry.c1751njava.petadoption.ImageUpload.Model.Mapper.ImageMapper;
 import tech.nocountry.c1751njava.petadoption.ImageUpload.Repository.ImageRepository;
+import tech.nocountry.c1751njava.petadoption.Pet.Model.Pet;
 import tech.nocountry.c1751njava.petadoption.exception.custom.ValidationError;
 
 import java.io.File;
@@ -28,9 +29,10 @@ public class ImageUploadService {
         return imageRepository.findById(publicId);
     }
 
-    public Image uploadImage(MultipartFile multipartFile) throws IOException {
+    public Image uploadImage(MultipartFile multipartFile, Pet pet) throws IOException {
         File file = convertMultiPartToFile(multipartFile);
         Image uploadedImage = ImageMapper.toImage(cloudinary.uploader().upload(file, ObjectUtils.emptyMap()));
+        uploadedImage.setPet(pet);
         imageRepository.save(uploadedImage);
         file.delete();
         return uploadedImage;

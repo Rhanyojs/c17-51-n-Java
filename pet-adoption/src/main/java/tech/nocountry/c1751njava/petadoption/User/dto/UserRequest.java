@@ -18,6 +18,12 @@ public class UserRequest {
     @Size(min = 8, message = "Password must be at least 8 characters")
     private String password;
 
+    @NotBlank(message = "Email is mandatory")
+    @Size(min = 3, max = 100, message = "Email must be between 3 and 100 characters")
+    @Pattern(regexp = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$",
+            message = "Email must be a valid email address")
+    private String email;
+
     @NotBlank(message = "First name is mandatory")
     @Size(max = 100, message = "First name must be a maximum of 100 characters")
     @Pattern(regexp = "^[^0-9]+$", message = "First name cannot contain numbers")
