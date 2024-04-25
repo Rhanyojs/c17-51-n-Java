@@ -1,10 +1,10 @@
 package tech.nocountry.c1751njava.petadoption.Pet.repository.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 import tech.nocountry.c1751njava.petadoption.Pet.Model.Pet;
 import tech.nocountry.c1751njava.petadoption.Pet.repository.PetRepository;
+import tech.nocountry.c1751njava.petadoption.Pet.service.DTO.PetFilters;
 
 import java.util.List;
 import java.util.Optional;
@@ -37,11 +37,12 @@ public class PetDAOImpl implements IPetDao {
     }
 
     @Override
-    public List<Pet> findPetBySpeciesAndBreedAndAge(Optional<String> species, Optional<String> breed, Optional<Integer> age) {
-        return petRepository.findPetBySpeciesAndBreedAndAge(species.orElse(null),breed.orElse(null),age.orElse(null));
+    public List<Pet> findPetByFilters(PetFilters petFilters) {
+        return petRepository.findPetByFilters(
+                petFilters.getSpecies().orElse(null), petFilters.getBreed().orElse(null),
+                petFilters.getUbication().orElse(null), petFilters.getGender().orElse(null),
+                petFilters.getSize().orElse(null), petFilters.getAge().orElse(null));
     }
-
-
 
 
 }
