@@ -22,3 +22,18 @@ Nuestros refugios asociados trabajan incansablemente para rescatar y cuidar a es
 | Miguel Ángel Chávez               | Desarrollador Backend |
 | Sebastian Guerra                  | Desarrollador Backend |
 | Yohan Rodriguez                   | QA Manual             |
+
+### backend:
+- Lenguaje Java
+- Framework Spring Boot
+- JWT (JSON Web Tokens)
+- JPA (Java Persistence API)
+- Cloudinary para imágenes
+- MySQL
+### frontend:
+- React.js
+- Tailwind CSS
+- JavaScript
+- HTML
+- CSS
+- SweetAlert2
