@@ -13,13 +13,15 @@
 
   .containerImages {
     width: 100%;
-    height: 50%;
+    height: 240px;
 
+    max-height: 240px;
+    min-height: 240px;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background-image: url("../../assets/images/pet-image.jpg");
+    // background-image: url("../../assets/images/pet-image.jpg");
     background-size: cover;
     .Image {
       width: 100%;
