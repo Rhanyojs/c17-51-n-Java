@@ -31,11 +31,7 @@ public class ShelterController {
 
     @PostMapping()
     public ResponseEntity<?> createShelter(@RequestBody @Valid UserRequest user) {
-        try {
-            return new ResponseEntity<>(shelterServices.create(user), HttpStatus.CREATED);
-        } catch (DataAccessException e) {
-            return new ResponseEntity<>("Error en la creación", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        return new ResponseEntity<>(shelterServices.create(user), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
@@ -44,7 +40,7 @@ public class ShelterController {
             UserDto userDto = shelterServices.update(user, id);
             return new ResponseEntity<>(userDto, HttpStatus.OK);
         } catch (EntityNotFoundException e) {
-            return new ResponseEntity<>("No se encontró el usuario", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("No se encontró el usuario ", HttpStatus.NOT_FOUND);
         }
     }
 
