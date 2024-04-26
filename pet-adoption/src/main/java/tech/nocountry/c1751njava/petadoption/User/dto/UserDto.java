@@ -1,6 +1,5 @@
 package tech.nocountry.c1751njava.petadoption.User.dto;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +15,8 @@ public class UserDto {
 
     private String username;
 
+    private String email;
+
     private String firstName;
 
     private String lastName;
@@ -25,7 +26,6 @@ public class UserDto {
     private String location;
 
     private Boolean isBanned;
-
-    @JsonBackReference
+    @JsonIgnore
     private List<Pet> pets;
 }

@@ -2,8 +2,10 @@ import React from "react";
 import "./Register.scss";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
   // Desestructuración de la función useForm() de React Hook Form
   const {
     // Función register() que registra los campos del formulario
@@ -25,6 +27,7 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    console.log(data);
     // Aquí puedes realizar tus operaciones asíncronas, como una petición a una API
     // Por ahora, mostraremos un SweetAlert y luego resetearemos el formulario
     await Swal.fire({
@@ -35,6 +38,8 @@ const Register = () => {
 
     // Reseteamos el formulario después de mostrar el SweetAlert
     reset();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate("/Home");
   };
 
   return (
@@ -50,7 +55,7 @@ const Register = () => {
         restablecer el formulario. */}
         <div className="pet-input-container">
           <label htmlFor="username" className="pet-label">
-            Nombre de usuario
+            Nombres de usuario
           </label>
           <input
             type="text"
@@ -82,6 +87,33 @@ const Register = () => {
               // <span className="pet-span">{errors.nombre.message}</span>:
               //Aquí se muestra el mensaje de error asociado al campo "nombre".
               // Si hay un error, este mensaje se mostrará para indicar al usuario qué problema ocurrió con el campo "nombre".
+            )}
+        </div>
+        <div className="pet-input-container">
+          <label htmlFor="username" className="pet-label">
+            Apellidos del usuario
+          </label>
+          <input
+            type="text"
+            className="pet-input"
+            placeholder="Ingresa tu nombre de usuario"
+            {...register("apellido", {
+              required: "El apellido es requerido",
+
+              minLength: {
+                value: 4,
+                message:
+                  "El apellido del usuario debe ser mayor a 4 caracteres",
+              },
+              maxLength: {
+                value: 20,
+                message: "El nombre de usuario debe tener máximo 20 caracteres",
+              },
+            })}
+          />
+          {errors.apellido &&
+            (touchedFields.apellido || errors.apellido.type === "required") && (
+              <span className="pet-span">{errors.apellido.message}</span>
             )}
         </div>
         <div className="pet-input-container">
@@ -171,9 +203,8 @@ const Register = () => {
             id="options"
           >
             <option value="">Selecciona...</option>
-            <option value="opcion1">Persona</option>
-            <option value="opcion2">Refugio</option>
-            <option value="opcion3">Administrador</option>
+            <option value="Persona">Persona</option>
+            <option value="Refugio">Refugio</option>
           </select>
           {errors.tipoDeUsuario &&
             (touchedFields.tipoDeUsuario ||
@@ -184,7 +215,6 @@ const Register = () => {
         <button type="submit" className="pet-button">
           Registrarse
         </button>
-      
       </form>
     </div>
   );

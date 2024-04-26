@@ -2,20 +2,28 @@ import React from "react";
 import "./Nosotros.scss";
 import imgNosotros from "../../assets/images/imagen-nosotros.jpg";
 import Huellas from "@/components/icons/Huellas";
+import { useNavigate } from "react-router-dom";
 
 const Nosotros = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate("/Mascotas");
+  };
   return (
     <main className="contenedor">
       <div className="nosotros">
         <div className="nosotros__contenido">
           <h1 className="title-principal">Por qué elegirnos</h1>
           <h2 className="title-secundario">
-            Algunas de las razones por las que la gente prefiere nuestros servicios
+            Algunas de las razones por las que la gente prefiere nuestros
+            servicios
           </h2>
           <p className="parrafo-nosotros">
-            Desde nuestra fundación en 1999, hemos trabajado para brindar los mejores servicios de
-            cuidado para sus perros y gatos. Además, los dueños de mascotas en todo Estados Unidos
-            eligen nuestro salón para:
+            Desde nuestra fundación en 1999, hemos trabajado para brindar los
+            mejores servicios de cuidado para sus perros y gatos. Además, los
+            dueños de mascotas en todo Estados Unidos eligen nuestro salón para:
           </p>
 
           <div className="container-beneficios">
@@ -25,17 +33,26 @@ const Nosotros = () => {
             </div>
             <div className="items-beneficios">
               <Huellas />
-              <p className="text-n">Equipos de alta calidad y totalmente estériles</p>
+              <p className="text-n">
+                Equipos de alta calidad y totalmente estériles
+              </p>
             </div>
             <div className="items-beneficios">
               <Huellas />
-              <p className="text-n">Diferentes tipos de aseo para tus mascotas</p>
+              <p className="text-n">
+                Diferentes tipos de aseo para tus mascotas
+              </p>
             </div>
             <div className="items-beneficios">
               <Huellas />
               <p className="text-n">Conveniente</p>
             </div>
-            <button type="submit" className="nosotros-button">
+
+            <button
+              type="submit"
+              className="nosotros-button"
+              onClick={handleClick}
+            >
               <svg
                 className="nosotros__icono"
                 xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +72,8 @@ const Nosotros = () => {
                 <path d="M16.456 6.733c.214 -1.376 -.375 -2.594 -1.32 -2.722a1.164 1.164 0 0 0 -.162 -.011c-.885 0 -1.728 .97 -1.93 2.267c-.214 1.376 .375 2.594 1.32 2.722c.054 .007 .108 .011 .162 .011c.885 0 1.73 -.974 1.93 -2.267z" />
                 <path d="M5.69 12.918c.816 -.352 1.054 -1.719 .536 -3.052c-.436 -1.124 -1.271 -1.866 -2.009 -1.866c-.14 0 -.277 .027 -.407 .082c-.816 .352 -1.054 1.719 -.536 3.052c.436 1.124 1.271 1.866 2.009 1.866c.14 0 .277 -.027 .407 -.082z" />
               </svg>
-              <p className="nosotros__texto">Reservar ahora</p>
+
+              <p className="nosotros__texto">Adoptar ahora</p>
             </button>
           </div>
         </div>

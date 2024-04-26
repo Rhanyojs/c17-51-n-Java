@@ -1,5 +1,6 @@
 package tech.nocountry.c1751njava.petadoption.Config;
 
+import com.cloudinary.Cloudinary;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,19 +14,22 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import tech.nocountry.c1751njava.petadoption.User.Repository.UserRepository;
 
+import java.util.Map;
+
 @Configuration
 @RequiredArgsConstructor
 public class AplicationConfig {
 
     private final UserRepository userRepository;
+    private final Map<String, String> properties;
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception{
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
 
     @Bean
-    public AuthenticationProvider authenticationProvider(){
+    public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setUserDetailsService(userDetailService());
         authenticationProvider.setPasswordEncoder(passwordEncoder());
@@ -42,4 +46,14 @@ public class AplicationConfig {
         return username -> userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
+
+    @Bean
+    public Cloudinary cloudinaryConfig() {
+        properties.put("cloud_name", "ddxmx9rf3");
+        properties.put("api_key", "881246827241716");
+        properties.put("api_secret", "i2oKSwiz7wxhiZ9sdS-y0bWzczI");
+
+        return new Cloudinary(properties);
+    }
+
 }

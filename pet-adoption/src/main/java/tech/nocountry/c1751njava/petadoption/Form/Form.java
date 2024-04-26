@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "AM_FORM")
-public class Form {
+public class  Form {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

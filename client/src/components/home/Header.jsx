@@ -24,8 +24,12 @@ export function Header() {
       <div className="max-w-7xl md:mx-[100px] lg:mx-auto px-4 sm:px-6 lg:px-6 lg:pt-[100px]">
         <main className="flex flex-col gap-4 lg:flex-row justify-between items-center ">
           <div className="flex flex-col gap-4  lg:gap-6 lg:w-3/5 mt-12 ">
-            <p className="text-[22px] text-[#bd177a] font-bold">Bienvenido a Adopta.me</p>
-            <h2 className="text-6xl font-bold text-gray-800 mb-6 ">Hogar para Todos</h2>
+            <p className="text-[22px] text-[#bd177a] font-bold">
+              Bienvenido a Adopta.me
+            </p>
+            <h2 className="text-6xl font-bold text-gray-800 mb-6 ">
+              Hogar para Todos
+            </h2>
             <p className="text-gray-600 text-lg mb-4">
               Encuentra a tu compañero perfecto ¡Adopta una Mascota!
             </p>
@@ -36,8 +40,9 @@ export function Header() {
                 Encuentra tu mascota ideal
               </h3>
               <p className="text-sm text-gray-500 mb-4">
-                Encuentra tu mascota ideal en base a tus preferencias, necesidades y/o capacidades.
-                Cualquier opción es una buena opción para darle un hogar a un ser que lo necesita.
+                Encuentra tu mascota ideal en base a tus preferencias,
+                necesidades y/o capacidades. Cualquier opción es una buena
+                opción para darle un hogar a un ser que lo necesita.
               </p>
               <form className="space-y-4">
                 <Select>
@@ -51,11 +56,17 @@ export function Header() {
                 </Select>
                 <Select>
                   <SelectTrigger id="breed">
-                    <SelectValue placeholder="Raza" />
+                    <SelectValue placeholder="Ubicación" />
                   </SelectTrigger>
                   <SelectContent position="popper">
-                    <SelectItem value="labrador">Labrador</SelectItem>
-                    <SelectItem value="persian">Persian Cat</SelectItem>
+                    <SelectItem value="labrador">Ciudad de México</SelectItem>
+                    <SelectItem value="persian">Guadalajara</SelectItem>
+                    <SelectItem value="labrador">Ciudad de México</SelectItem>
+                    <SelectItem value="persian">Monterrey</SelectItem>
+                    <SelectItem value="labrador">Puebla</SelectItem>
+                    <SelectItem value="persian">Tijuana</SelectItem>
+                    <SelectItem value="labrador">Ciudad de México</SelectItem>
+                    <SelectItem value="persian">Guadalajara</SelectItem>
                   </SelectContent>
                 </Select>
                 <Select>
@@ -63,13 +74,19 @@ export function Header() {
                     <SelectValue placeholder="Edad" />
                   </SelectTrigger>
                   <SelectContent position="popper">
-                    <SelectItem value="puppy">Cachorro</SelectItem>
-                    <SelectItem value="adult">Adulto</SelectItem>
+                    <SelectItem value="puppy">1 años</SelectItem>
+                    <SelectItem value="adult">2 años</SelectItem>
+                    <SelectItem value="puppy">3 años</SelectItem>
+                    <SelectItem value="adult">4 años</SelectItem>
+                    <SelectItem value="puppy">5 años</SelectItem>
+                    <SelectItem value="adult">6 años</SelectItem>
                   </SelectContent>
                 </Select>
 
                 {/* <Input placeholder="Date" type="date" /> */}
-                <Button className="w-100 bg-yellow-500 text-white">Buscar ahora</Button>
+                <Button className="w-100 bg-yellow-300 hover:bg-purple-500 text-black hover:text-white">
+                  Buscar ahora
+                </Button>
               </form>
             </div>
           </div>

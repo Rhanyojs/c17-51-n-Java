@@ -1,4 +1,4 @@
-.pet-container {
+.FormUser-container {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,8 @@
   -webkit-box-shadow: 9px 10px 5px -4px rgba(0, 0, 0, 0.55);
   -moz-box-shadow: 9px 10px 5px -4px rgba(20, 20, 20, 0.55);
   box-shadow: 9px 10px 5px -4px rgba(3, 3, 3, 0.55);
-  .pet-span {
+
+  .FormUser-span {
     font-size: 15px;
     color: tomato;
     &.success {
@@ -18,38 +19,81 @@
     }
   }
 
-  .pet-title {
+  .FormUser-title {
     font-size: 32px;
     font-weight: bold;
     color: #ffffff;
     margin-bottom: 10px;
-
     font-weight: bold;
   }
 
-  .pet-form {
+  .FormUser-form {
     width: 400px;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    gap: 10px;
 
-    .pet-input-container {
+    .FormUser-input-container {
       margin-bottom: 15px;
-      .pet-label {
+      .FormUser-label {
         display: block;
         margin-bottom: 5px;
       }
 
-      .pet-input {
+      .FormUser-input {
         width: 100%;
         padding: 8px;
         border: 1px solid #ccc;
         border-radius: 4px;
       }
+
+      .FormUser-checkbox {
+        margin-right: 10px;
+      }
+      .FormUser-checkbox-terminos {
+        background: red;
+        width: 250px;
+      }
     }
 
-    .pet-button {
+    .FormUser-checkbox-container {
+      margin-bottom: 15px;
+      gap: 10px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .checkbox-label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .container-checkboxs {
+        display: flex;
+        flex-direction: row;
+
+        height: 20px;
+        width: 100%;
+        gap: 10px;
+
+        align-items: center;
+
+        .checkbox {
+          display: flex;
+          flex-direction: row;
+
+          align-items: center;
+        }
+      }
+
+      .FormUser-checkbox {
+        margin-right: 10px;
+      }
+    }
+
+    .FormUser-button {
       width: 100%;
       padding: 10px;
       background-color: #ffee7a;

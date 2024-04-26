@@ -4,10 +4,9 @@ import Register from "@pages/register/Register";
 import Navbar from "@/components/Navbar";
 import Login from "@pages/login/Login";
 import Mascotas from "@/components/Mascotas/Mascotas";
-import PetInformation from "@/components/petInformation/PetInformation";
 import Contacto from "@/pages/contacto/Contacto";
 import Nosotros from "@/pages/nosotros/Nosotros";
-import Footer from "@/components/Footer/Footer";
+import FormUser from "@/components/formUser/FormUser";
 
 export default function AppRouter() {
   return (
@@ -15,12 +14,13 @@ export default function AppRouter() {
       <Navbar />
       <Routes>
         <Route element={<Home />} path="/" />
+        <Route element={<Home />} path="/Home" />
         <Route element={<Register />} path="/Register" />
         <Route element={<Login />} path="/Login" />
         <Route element={<Mascotas />} path="/Mascotas" />
-        <Route element={<PetInformation />} path="/PetInformation" />
         <Route element={<Contacto />} path="/Contacto" />
         <Route element={<Nosotros />} path="/Nosotros" />
+        <Route element={<FormUser />} path="/FormUser" />
       </Routes>
       {/* <Footer /> */}
     </>
