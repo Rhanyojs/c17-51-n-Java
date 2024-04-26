@@ -1,3 +1,5 @@
+// import moment from 'moment';
+
 export const getCookie = (name) => {
   const cookies = document.cookie.split(';');
   for (let cookie of cookies) {
@@ -14,7 +16,13 @@ export const setCookie = (name, value, options = {}) => {
   let cookieString = `${name}=${stringValue}`;
   if (options.expires) {
     const date = new Date();
-    date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));
+
+    // const momentDate = moment().format();
+    // console.log('expires', options.expires)
+    // const addTime = moment(momentDate).add(options.expires, 'ms');
+    // console.log('addTime', addTime);
+    
+    date.setTime(date.getTime() + (options.expires));
     cookieString += `; expires=${date.toUTCString()}`;
   }
   document.cookie = cookieString;
