@@ -10,17 +10,17 @@ Sumérgete en un mundo de esperanza y compasión, donde cada clic es un paso má
 Nuestros refugios asociados trabajan incansablemente para rescatar y cuidar a estas mascotas, y tú puedes ser parte de su historia.
 
 ## Colaboradores
-| Colaborador                       | Rol                   |
-|-----------------------------------|-----------------------|
-| Ángeles                           | Diseñadora UX/UI      |
-| Daiana Trinidad Puig              | Desarrollador Frontend|
-| Jesús Antonio García Montalvo     | Desarrollador Frontend|
-| Pedro Martínez                    | Desarrollador Frontend|
-| Brandon Alfaro Rollano            | Desarrollador Backend |
+| Colaborador                       | Rol                   | Social media      |
+|-----------------------------------|-----------------------|-------------------|
+| Ángeles                           | Diseñadora UX/UI      |  
+| Daiana Trinidad Puig              | Desarrollador Frontend|  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](URL_del_Perfil_de_LinkedIn) 
+| Jesús Antonio García Montalvo     | Desarrollador Frontend|  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](URL_del_Perfil_de_LinkedIn) 
+| Pedro Martínez                    | Desarrollador Frontend|  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](URL_del_Perfil_de_LinkedIn) 
+| Brandon Alfaro Rollano            | Desarrollador Backend |  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](URL_del_Perfil_de_LinkedIn) 
 | Dualbert Morelo                   | Desarrollador Backend |
-| Emerson Herrera Vásquez           | Desarrollador Backend |
-| Miguel Ángel Chávez               | Desarrollador Backend |
-| Sebastian Guerra                  | Desarrollador Backend |
+| Emerson Herrera Vásquez           | Desarrollador Backend |  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](URL_del_Perfil_de_LinkedIn) 
+| Miguel Ángel Chávez               | Desarrollador Backend |  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/miguelangelchavez-/) 
+| Sebastian Guerra                  | Desarrollador Backend |  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](URL_del_Perfil_de_LinkedIn) 
 | Yohan Rodriguez                   | QA Manual             |
 
 ### backend:
@@ -37,3 +37,7 @@ Nuestros refugios asociados trabajan incansablemente para rescatar y cuidar a es
 - HTML
 - CSS
 - SweetAlert2
+
+### Designer ux/ui
+- Figma
+### <a href="https://www.figma.com/file/HufaZYtfTDgfM8rhl4BpqG/Untitled?type=design&node-id=0-1&mode=design&t=HdPkRTKi2ub8H2iB-0"><img height="18px" src="https://img.icons8.com/color/344/figma--v1.png"/>Diseño</a>
