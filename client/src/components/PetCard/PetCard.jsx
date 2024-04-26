@@ -3,6 +3,7 @@ import "./PetCard.scss";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 
@@ -74,11 +75,9 @@ function PetCard({ pet }) {
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={adoptPet} variant="info"
-          >
-            Adoptar
-            
-          </Button>
+          <Link to="/FormUser">
+            <Button variant="info">Adoptar</Button>
+          </Link>
         </Modal.Footer>
       </Modal>
     </div>
