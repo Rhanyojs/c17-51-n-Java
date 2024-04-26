@@ -7,9 +7,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import tech.nocountry.c1751njava.petadoption.Jwt.JwtService;
-import tech.nocountry.c1751njava.petadoption.User.Role;
 import tech.nocountry.c1751njava.petadoption.User.Model.User;
 import tech.nocountry.c1751njava.petadoption.User.Repository.UserRepository;
+import tech.nocountry.c1751njava.petadoption.User.Role;
 
 @Service
 @RequiredArgsConstructor
@@ -29,15 +29,16 @@ public class AuthService {
                 .build();
     }
 
-    public AuthResponse register(RegisterRequest request) {
+    public AuthResponse register(RegisterRequest request){
         User user = User.builder()
                 .username(request.getUsername())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .firstName(request.getFirstname())
                 .lastName(request.getLastname())
+                .email(request.getEmail())
                 .isBanned(false)
                 .location(request.getLocation())
-                .role(Role.USER)
+                .role(request.getRole() == null ? Role.USER : Role.valueOf(request.getRole().toUpperCase()))
                 .build();
 
         userRepository.save(user);

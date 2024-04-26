@@ -6,6 +6,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { FaUserPlus } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
+
 // Importamos el icono FaUserPlus desde la librería react-icons/fa
 
 const Contacto = () => {
@@ -132,7 +133,7 @@ const Contacto = () => {
               )}
           </div>
           <button type="submit" className="contacto-button">
-            Registrarse
+            Enviar
           </button>
         </form>
       </div>

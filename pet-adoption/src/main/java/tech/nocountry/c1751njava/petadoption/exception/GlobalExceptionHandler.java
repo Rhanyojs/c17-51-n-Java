@@ -1,5 +1,6 @@
 package tech.nocountry.c1751njava.petadoption.exception;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -34,6 +35,15 @@ public class GlobalExceptionHandler {
         List<ValidationError> errors = List.of(new ValidationError(e.getMessage(), e.getFieldName()));
         ErrorResponse errorResponse = new ErrorResponse(errors);
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<String> handleDataIntegrityViolationException(DataIntegrityViolationException e) {
+        if (e.getCause() instanceof org.hibernate.exception.ConstraintViolationException) {
+            return new ResponseEntity<>("El nombre de usuario ya existe", HttpStatus.CONFLICT);
+        }
+        return new ResponseEntity<>("Error en la integridad de datos", HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler({Exception.class})
