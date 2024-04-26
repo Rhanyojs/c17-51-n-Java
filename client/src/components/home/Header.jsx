@@ -8,13 +8,13 @@ import {
 } from "@/components/ui/select";
 import { useState } from "react";
 // import { Input } from "@/components/ui/input"
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 
 export function Header() {
   const [form, setForm] = useState({
     age: "",
     location: "",
-    pet:""
+    pet: "",
   });
 
   const navigate = useNavigate();
@@ -22,28 +22,27 @@ export function Header() {
   const handleChange = (selector, value) => {
     setForm({
       ...form,
-      [selector]: value
-    })
-  }
+      [selector]: value,
+    });
+  };
 
   // console.log(window.location.href)
 
   const handleSubmit = (e) => {
-
     e.preventDefault();
 
     const url = new URL(window.location.href);
 
-    if (form.age){
-      url.searchParams.set('age', form.age)
+    if (form.age) {
+      url.searchParams.set("age", form.age);
     }
 
-    if (form.location) url.searchParams.set('location', form.location)
-    if (form.pet) url.searchParams.set('pet', form.pet)
-    
-    window.open('/mascotas' + url.search, '_blank')
+    if (form.location) url.searchParams.set("location", form.location);
+    if (form.pet) url.searchParams.set("pet", form.pet);
+
+    window.open("/mascotas" + url.search, "_blank");
     // navigate('/mascotas' + url.search)
-  }
+  };
 
   return (
     <div
@@ -80,14 +79,11 @@ export function Header() {
                 necesidades y/o capacidades. Cualquier opción es una buena
                 opción para darle un hogar a un ser que lo necesita.
               </p>
-              <form 
-                className="space-y-4"
-                onSubmit={handleSubmit}
-              >
-                <Select 
+              <form className="space-y-4" onSubmit={handleSubmit}>
+                <Select
                   name="pet"
                   onValueChange={(value) => {
-                    handleChange('pet', value)
+                    handleChange("pet", value);
                   }}
                 >
                   <SelectTrigger id="pet">
@@ -98,29 +94,29 @@ export function Header() {
                     <SelectItem value="cat">Gato</SelectItem>
                   </SelectContent>
                 </Select>
-                <Select 
+                <Select
                   name="location"
                   onValueChange={(value) => {
-                    handleChange('location', value)
+                    handleChange("location", value);
                   }}
                 >
-                  <SelectTrigger id="breed" >
+                  <SelectTrigger id="breed">
                     <SelectValue placeholder="Ubicación" />
                   </SelectTrigger>
                   <SelectContent position="popper">
-                    <SelectItem value="Ciudad de México">Ciudad de México</SelectItem>
+                    <SelectItem value="Ciudad de México">
+                      Ciudad de México
+                    </SelectItem>
                     <SelectItem value="Guadalajara">Guadalajara</SelectItem>
                     <SelectItem value="persian">Monterrey</SelectItem>
                     <SelectItem value="Puebla">Puebla</SelectItem>
                     <SelectItem value="Tijuana">Tijuana</SelectItem>
-                    
-            
                   </SelectContent>
                 </Select>
                 <Select
                   name="age"
                   onValueChange={(value) => {
-                    handleChange('age', value)
+                    handleChange("age", value);
                   }}
                 >
                   <SelectTrigger id="age">
@@ -137,11 +133,11 @@ export function Header() {
                 </Select>
 
                 {/* <Input placeholder="Date" type="date" /> */}
-                <Button 
+                <Button
                   type="submit"
                   className="w-100 bg-yellow-300 hover:bg-purple-500 text-black   hover:text-white"
                 >
-                    Buscar Ahora
+                  Buscar Ahora
                 </Button>
               </form>
             </div>

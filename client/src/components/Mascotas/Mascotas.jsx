@@ -3,7 +3,6 @@ import axios from "axios";
 import "./Details.scss";
 import PetCard from "../PetCard/PetCard";
 
-
 function Mascotas() {
   // Utilizamos el hook useState para definir un estado local llamado petsData,
   // que almacenará los datos de las mascotas.
@@ -49,7 +48,4 @@ function Mascotas() {
   );
 }
 
-
-
 export default Mascotas;
-

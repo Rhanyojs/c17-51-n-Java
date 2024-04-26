@@ -30,30 +30,28 @@ const Register = () => {
   const onSubmit = async (data) => {
     console.log(data);
     try {
-        // Asegúrate de incluir el protocolo (http:// o https://) en la URL
-        const res = await axios.post("http://localhost:8080/auth/register", data);
-        // Aquí manejamos la respuesta del servidor tras una solicitud exitosa
-        await Swal.fire({
-            icon: "success",
-            title: "¡Registro exitoso!",
-            text: "Tu formulario ha sido enviado correctamente.",
-        });
-        // Reseteamos el formulario después de mostrar el SweetAlert
-        reset();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        // Redirigimos al usuario a otra ruta, por ejemplo al inicio
-        navigate("/Home");
+      const res = await axios.post("http://localhost:8080/auth/register", data);
+      // Aquí manejamos la respuesta del servidor tras una solicitud exitosa
+      await Swal.fire({
+        icon: "success",
+        title: "¡Registro exitoso!",
+        text: "Tu formulario ha sido enviado correctamente.",
+      });
+      // Reseteamos el formulario después de mostrar el SweetAlert
+      reset();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      // Redirigimos al usuario a otra ruta, por ejemplo al inicio
+      navigate("/Home");
     } catch (err) {
-        // Manejo de errores si la solicitud falla
-        Swal.fire({
-            icon: "error",
-            title: "Error al registrarse",
-            text: err.response ? err.response.data.message : "Error desconocido",
-        });
-        console.log(err)
+      // Manejo de errores si la solicitud falla
+      Swal.fire({
+        icon: "error",
+        title: "Error al registrarse",
+        text: err.response ? err.response.data.message : "Error desconocido",
+      });
+      console.log(err);
     }
-};
-
+  };
 
   return (
     <div className="pet-container">
@@ -125,7 +123,8 @@ const Register = () => {
             })}
           />
           {errors.firstname &&
-            (touchedFields.firstname || errors.firstname.type === "required") && (
+            (touchedFields.firstname ||
+              errors.firstname.type === "required") && (
               <span className="pet-span">{errors.firstname.message}</span>
             )}
         </div>
@@ -156,7 +155,7 @@ const Register = () => {
               <span className="pet-span">{errors.lastname.message}</span>
             )}
         </div>
-        
+
         <div className="pet-input-container">
           <label htmlFor="email" className="pet-label">
             Correo electrónico
@@ -201,8 +200,7 @@ const Register = () => {
             })}
           />
           {errors.password &&
-            (touchedFields.password ||
-              errors.password.type === "required") && (
+            (touchedFields.password || errors.password.type === "required") && (
               <span className="pet-span">{errors.password.message}</span>
             )}
         </div>
@@ -215,7 +213,7 @@ const Register = () => {
             className="pet-input"
             placeholder="Ingresa tu ubicacion"
             {...register("location", {
-              required: "La ubicacion  es requerida"
+              required: "La ubicacion  es requerida",
             })}
           />
           {errors.location &&
@@ -239,8 +237,7 @@ const Register = () => {
             <option value="SHELTER">Refugio</option>
           </select>
           {errors.role &&
-            (touchedFields.role ||
-              errors.role.type === "required") && (
+            (touchedFields.role || errors.role.type === "required") && (
               <span className="pet-span">{errors.role.message}</span>
             )}
         </div>
