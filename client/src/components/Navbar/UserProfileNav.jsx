@@ -7,8 +7,12 @@ import {
   DropdownMenuTrigger,
 } from "@ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@components/ui/avatar";
+import { useAuth } from '@/context/AuthContext';
 
-export default function UserProfileNav({ setUser }) {
+export default function UserProfileNav() {
+
+  const { signOut } = useAuth();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -27,7 +31,7 @@ export default function UserProfileNav({ setUser }) {
         <DropdownMenuItem>Team</DropdownMenuItem>
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem onClick={setUser.bind(this, null)}>
+        <DropdownMenuItem onClick={signOut}>
           Cerrar Sesión
         </DropdownMenuItem>
       </DropdownMenuContent>

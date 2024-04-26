@@ -1,2 +1,4 @@
+*.env*
+
 node_modules
 pet-adoption/src/main/resources/application.properties

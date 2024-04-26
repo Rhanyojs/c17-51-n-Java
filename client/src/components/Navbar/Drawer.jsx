@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Button } from "@ui/button";
 import { useNavigate } from "react-router-dom";
 import { navItems } from "./navItems";
+import { useAuth } from '@/context/AuthContext';
 
-export default function Drawer({ user, setUser }) {
+export default function Drawer({ user }) {
+  const { signIn } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const toggleDrawer = () => {
@@ -92,7 +94,8 @@ export default function Drawer({ user, setUser }) {
                 <Button
                   onClick={() => {
                     toggleDrawer();
-                    setUser(true);
+                    signIn();
+                    // setUser(true);
                   }}
                 >
                   Iniciar sesión

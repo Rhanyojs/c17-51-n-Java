@@ -1,4 +1,3 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import "./FormUser.scss";
 
@@ -14,7 +13,7 @@ function FormUser() {
     reset,
   } = useForm();
 
-  const onSubmit = async (data) => {
+  const onSubmit = async () => {
     await Swal.fire({
       icon: "success",
       title: "Formulario enviado!",
