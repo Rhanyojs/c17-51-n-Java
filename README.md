@@ -16,11 +16,11 @@ Nuestros refugios asociados trabajan incansablemente para rescatar y cuidar a es
 | Daiana Trinidad Puig              | Desarrollador Frontend|  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](URL_del_Perfil_de_LinkedIn) 
 | Jesús Antonio García Montalvo     | Desarrollador Frontend|  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](URL_del_Perfil_de_LinkedIn) 
 | Pedro Martínez                    | Desarrollador Frontend|  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](URL_del_Perfil_de_LinkedIn) 
-| Brandon Alfaro Rollano            | Desarrollador Backend |  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](URL_del_Perfil_de_LinkedIn) 
+| Brandon Alfaro Rollano            | Desarrollador Backend |  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/brandonalfarorollano/) 
 | Dualbert Morelo                   | Desarrollador Backend |
-| Emerson Herrera Vásquez           | Desarrollador Backend |  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](URL_del_Perfil_de_LinkedIn) 
+| Emerson Herrera Vásquez           | Desarrollador Backend |  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emersonhv/) 
 | Miguel Ángel Chávez               | Desarrollador Backend |  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/miguelangelchavez-/) 
-| Sebastian Guerra                  | Desarrollador Backend |  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](URL_del_Perfil_de_LinkedIn) 
+| Sebastian Guerra                  | Desarrollador Backend |  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sebastian-guerra-682b04297/) 
 | Yohan Rodriguez                   | QA Manual             |
 
 ### backend:
