@@ -4,6 +4,9 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Swal from "sweetalert2";
 
+
+
+
 function PetCard({ pet }) {
   const [showModal, setShowModal] = useState(false);
 
@@ -71,8 +74,10 @@ function PetCard({ pet }) {
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={adoptPet} variant="info">
+          <Button onClick={adoptPet} variant="info"
+          >
             Adoptar
+            
           </Button>
         </Modal.Footer>
       </Modal>
@@ -80,4 +85,7 @@ function PetCard({ pet }) {
   );
 }
 
+
 export default PetCard;
+
+

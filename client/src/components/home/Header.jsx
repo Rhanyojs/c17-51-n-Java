@@ -6,9 +6,16 @@ import {
   SelectContent,
   Select,
 } from "@/components/ui/select";
+import { useState } from "react";
 // import { Input } from "@/components/ui/input"
+import { Link} from 'react-router-dom';
 
 export function Header() {
+  const [form, setForm] = useState({
+    age: "",
+    location: "",
+    pet:""
+});
   return (
     <div
       className=" min-h-[100vh] h-full py-4 bg-white"
@@ -85,7 +92,8 @@ export function Header() {
 
                 {/* <Input placeholder="Date" type="date" /> */}
                 <Button className="w-100 bg-yellow-300 hover:bg-purple-500 text-black hover:text-white">
-                  Buscar ahora
+                  
+                  <Link to="/Mascotas">Buscar Ahora</Link>
                 </Button>
               </form>
             </div>

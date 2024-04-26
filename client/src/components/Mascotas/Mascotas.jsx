@@ -2,6 +2,7 @@ import React from "react";
 import "./Details.scss";
 import PetCard from "../PetCard/PetCard";
 
+
 function Mascotas() {
   //aqui podemos cambiara el objeto por una peticion get con axios que pueda traer la data de una api
   const petsData = [
@@ -122,4 +123,7 @@ function Mascotas() {
   );
 }
 
+
+
 export default Mascotas;
+
