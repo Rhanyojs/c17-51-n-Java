@@ -5,6 +5,9 @@ import Modal from "react-bootstrap/Modal";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
+
+
+
 function PetCard({ pet }) {
   const [showModal, setShowModal] = useState(false);
 
@@ -93,4 +96,7 @@ function PetCard({ pet }) {
   );
 }
 
+
 export default PetCard;
+
+

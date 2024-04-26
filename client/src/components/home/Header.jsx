@@ -6,9 +6,45 @@ import {
   SelectContent,
   Select,
 } from "@/components/ui/select";
+import { useState } from "react";
 // import { Input } from "@/components/ui/input"
+import { Link, useNavigate } from 'react-router-dom';
 
 export function Header() {
+  const [form, setForm] = useState({
+    age: "",
+    location: "",
+    pet:""
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (selector, value) => {
+    setForm({
+      ...form,
+      [selector]: value
+    })
+  }
+
+  // console.log(window.location.href)
+
+  const handleSubmit = (e) => {
+
+    e.preventDefault();
+
+    const url = new URL(window.location.href);
+
+    if (form.age){
+      url.searchParams.set('age', form.age)
+    }
+
+    if (form.location) url.searchParams.set('location', form.location)
+    if (form.pet) url.searchParams.set('pet', form.pet)
+    
+    window.open('/mascotas' + url.search, '_blank')
+    // navigate('/mascotas' + url.search)
+  }
+
   return (
     <div
       className=" min-h-[100vh] h-full py-4 bg-white"
@@ -44,8 +80,16 @@ export function Header() {
                 necesidades y/o capacidades. Cualquier opción es una buena
                 opción para darle un hogar a un ser que lo necesita.
               </p>
-              <form className="space-y-4">
-                <Select>
+              <form 
+                className="space-y-4"
+                onSubmit={handleSubmit}
+              >
+                <Select 
+                  name="pet"
+                  onValueChange={(value) => {
+                    handleChange('pet', value)
+                  }}
+                >
                   <SelectTrigger id="pet">
                     <SelectValue placeholder="Mascota" />
                   </SelectTrigger>
@@ -54,38 +98,50 @@ export function Header() {
                     <SelectItem value="cat">Gato</SelectItem>
                   </SelectContent>
                 </Select>
-                <Select>
-                  <SelectTrigger id="breed">
+                <Select 
+                  name="location"
+                  onValueChange={(value) => {
+                    handleChange('location', value)
+                  }}
+                >
+                  <SelectTrigger id="breed" >
                     <SelectValue placeholder="Ubicación" />
                   </SelectTrigger>
                   <SelectContent position="popper">
-                    <SelectItem value="labrador">Ciudad de México</SelectItem>
-                    <SelectItem value="persian">Guadalajara</SelectItem>
-                    <SelectItem value="labrador">Ciudad de México</SelectItem>
+                    <SelectItem value="Ciudad de México">Ciudad de México</SelectItem>
+                    <SelectItem value="Guadalajara">Guadalajara</SelectItem>
                     <SelectItem value="persian">Monterrey</SelectItem>
-                    <SelectItem value="labrador">Puebla</SelectItem>
-                    <SelectItem value="persian">Tijuana</SelectItem>
-                    <SelectItem value="labrador">Ciudad de México</SelectItem>
-                    <SelectItem value="persian">Guadalajara</SelectItem>
+                    <SelectItem value="Puebla">Puebla</SelectItem>
+                    <SelectItem value="Tijuana">Tijuana</SelectItem>
+                    
+            
                   </SelectContent>
                 </Select>
-                <Select>
+                <Select
+                  name="age"
+                  onValueChange={(value) => {
+                    handleChange('age', value)
+                  }}
+                >
                   <SelectTrigger id="age">
                     <SelectValue placeholder="Edad" />
                   </SelectTrigger>
                   <SelectContent position="popper">
-                    <SelectItem value="puppy">1 años</SelectItem>
-                    <SelectItem value="adult">2 años</SelectItem>
-                    <SelectItem value="puppy">3 años</SelectItem>
-                    <SelectItem value="adult">4 años</SelectItem>
-                    <SelectItem value="puppy">5 años</SelectItem>
-                    <SelectItem value="adult">6 años</SelectItem>
+                    <SelectItem value="1">1 años</SelectItem>
+                    <SelectItem value="2">2 años</SelectItem>
+                    <SelectItem value="3">3 años</SelectItem>
+                    <SelectItem value="4">4 años</SelectItem>
+                    <SelectItem value="5">5 años</SelectItem>
+                    <SelectItem value="6">6 años</SelectItem>
                   </SelectContent>
                 </Select>
 
                 {/* <Input placeholder="Date" type="date" /> */}
-                <Button className="w-100 bg-yellow-300 hover:bg-purple-500 text-black hover:text-white">
-                  Buscar ahora
+                <Button 
+                  type="submit"
+                  className="w-100 bg-yellow-300 hover:bg-purple-500 text-black   hover:text-white"
+                >
+                    Buscar Ahora
                 </Button>
               </form>
             </div>
