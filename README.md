@@ -12,7 +12,7 @@ Nuestros refugios asociados trabajan incansablemente para rescatar y cuidar a es
 ## Colaboradores
 | Colaborador                       | Rol                   | Social media      |
 |-----------------------------------|-----------------------|-------------------|
-| Ángeles                           | Diseñadora UX/UI      |  
+| Ángeles Leonardo                  | Diseñadora UX/UI      |  
 | Daiana Trinidad Puig              | Desarrollador Frontend|  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](URL_del_Perfil_de_LinkedIn) 
 | Jesús Antonio García Montalvo     | Desarrollador Frontend|  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](URL_del_Perfil_de_LinkedIn) 
 | Pedro Martínez                    | Desarrollador Frontend|  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](URL_del_Perfil_de_LinkedIn) 
