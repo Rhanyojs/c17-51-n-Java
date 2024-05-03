@@ -10,7 +10,7 @@ function Home() {
     <>
       <Header />
       <Mascotas />
-      <WhyUs />
+
       <Nosotros />
       <Contacto />
       <Footer />

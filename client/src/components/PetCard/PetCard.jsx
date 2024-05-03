@@ -5,9 +5,6 @@ import Modal from "react-bootstrap/Modal";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
-
-
-
 function PetCard({ pet }) {
   const [showModal, setShowModal] = useState(false);
 
@@ -37,7 +34,7 @@ function PetCard({ pet }) {
       <div className="containerImages">
         <img src={pet.images} alt="" className="Image" />
       </div>
-      <div className="containerTitleDescipcion">
+      <div className="containerTitleDescription">
         <div className="containerTitle">
           <h1 className="title">{pet.name}</h1>
           <div className="span"></div>
@@ -62,13 +59,13 @@ function PetCard({ pet }) {
         </Modal.Header>
         <Modal.Body>
           <p className="modal-info">
-            <span className="bold-span">Nombre:</span> {pet.name}
+            <span className="bold-span">Nombre:</span> {pet?.name}
           </p>
           <p className="modal-info">
-            <span className="bold-span">Descripción:</span> {pet.description}
+            <span className="bold-span">Descripción:</span> {pet?.description}
           </p>
           <p className="modal-info">
-            <span className="bold-span">Edad:</span> {pet.age}
+            <span className="bold-span">Edad:</span> {pet?.age}
           </p>
           <p className="modal-info">
             <span className="bold-span">Ubicación:</span> {pet.location}
@@ -96,7 +93,4 @@ function PetCard({ pet }) {
   );
 }
 
-
 export default PetCard;
-
-
