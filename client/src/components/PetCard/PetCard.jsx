@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./PetCard.scss";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 function PetCard({ pet }) {
@@ -16,23 +15,10 @@ function PetCard({ pet }) {
     setShowModal(false);
   };
 
-  const adoptPet = () => {
-    Swal.fire({
-      title: "¡Mascota Adoptada!",
-      icon: "success",
-      text: `¡Has adoptado a ${pet.name}!`,
-      confirmButtonText: "Aceptar",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        closeModal();
-      }
-    });
-  };
-
   return (
     <div className="card">
       <div className="containerImages">
-        <img src={pet.images} alt="" className="Image" />
+        <img alt="" className="Image" />
       </div>
       <div className="containerTitleDescription">
         <div className="containerTitle">

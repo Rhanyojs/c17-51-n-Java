@@ -13,7 +13,6 @@ import tech.nocountry.c1751njava.petadoption.Pet.service.PetService;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 
 @RestController
