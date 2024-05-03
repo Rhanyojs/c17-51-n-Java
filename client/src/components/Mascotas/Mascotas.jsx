@@ -1,111 +1,39 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from "react";
 import "./Details.scss";
 import PetCard from "../PetCard/PetCard";
+import axios from "axios";
 
 function Mascotas() {
-  //aqui podemos cambiara el objeto por una peticion get con axios que pueda traer la data de una api
-  const petsData = [
-    {
-      id: "1",
-      name: "Luna",
-      user: null,
-      description: "Labrador Retriever de color negro",
-      age: 3,
-      ubication: "Ciudad de México",
-      isState: true,
-      request: null,
-    },
-    {
-      id: "2",
-      name: "Simba",
-      user: null,
-      description: "Gato doméstico naranja y blanco",
-      age: 2,
-      ubication: "Guadalajara",
-      isState: true,
-      request: null,
-    },
-    {
-      id: "3",
-      name: "Rocky",
-      user: null,
-      description: "Bulldog francés de color blanco y marrón",
-      age: 4,
-      ubication: "Monterrey",
-      isState: false,
-      request: null,
-    },
-    {
-      id: "4",
-      name: "Bella",
-      user: null,
-      description: "Border Collie negro y blanco",
-      age: 1,
-      ubication: "Puebla",
-      isState: true,
-      request: null,
-    },
-    {
-      id: "5",
-      name: "Max",
-      user: null,
-      description: "Perro mestizo de tamaño mediano, color negro",
-      age: 5,
-      ubication: "Tijuana",
-      isState: true,
-      request: null,
-    },
-    {
-      id: "6",
-      name: "Luna",
-      user: null,
-      description: "Gato siamés de ojos azules",
-      age: 2,
-      ubication: "Ciudad de México",
-      isState: true,
-      request: null,
-    },
-    {
-      id: "7",
-      name: "Coco",
-      user: null,
-      description: "Caniche toy blanco",
-      age: 6,
-      ubication: "Guadalajara",
-      isState: true,
-      request: null,
-    },
-    {
-      id: "8",
-      name: "Toby",
-      user: null,
-      description: "Golden Retriever dorado",
-      age: 3,
-      ubication: "Monterrey",
-      isState: false,
-      request: null,
-    },
-    {
-      id: "9",
-      name: "Mia",
-      user: null,
-      description: "Yorkshire Terrier negro y dorado",
-      age: 2,
-      ubication: "Puebla",
-      isState: true,
-      request: null,
-    },
-    {
-      id: "10",
-      name: "Jack",
-      user: null,
-      description: "Pastor Alemán negro y marrón",
-      age: 4,
-      ubication: "Tijuana",
-      isState: true,
-      request: null,
-    },
-  ];
+  // Utilizamos el hook useState para definir un estado local llamado petsData,
+  // que almacenará los datos de las mascotas.
+  // Inicializamos este estado como un array vacío.
+  const [petsData, setPetsData] = useState([]);
+
+  // Utilizamos el hook useEffect para realizar una solicitud HTTP a la URL "http://localhost:8080/api/pets"
+  // y obtener los datos de las mascotas.
+
+  useEffect(() => {
+    // La función fetchData realiza esta solicitud utilizando Axios y maneja la respuesta.
+    // Si la solicitud es exitosa, actualiza el estado petsData con los datos de mascotas obtenidos.
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/api/pets", {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3VhcmlvMTIzIiwiaWF0IjoxNzE0MTc2NjMwLCJleHAiOjE3MTQxNzgwNzB9.IgnerVKv-EXK45PdHm9KSUHi9cIeVUdZ_ueRf4Ui96I`,
+          },
+        });
+        console.log("Data de mascotas:", response.data);
+        setPetsData(response.data);
+      } catch (error) {
+        // Si la solicitud falla, muestra un eroor en un console.log .
+        console.error("Error al obtener datos de mascotas:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="containerDetails">

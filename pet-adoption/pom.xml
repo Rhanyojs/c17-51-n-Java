@@ -10,7 +10,7 @@
     </parent>
     <groupId>tech.nocountry.c17-51-n-java</groupId>
     <artifactId>pet-adoption</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>pet-adoption</name>
     <description>API Pet Adoption</description>
     <properties>

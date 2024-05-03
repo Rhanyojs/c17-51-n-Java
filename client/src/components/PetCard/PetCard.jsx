@@ -32,9 +32,9 @@ function PetCard({ pet }) {
   return (
     <div className="card">
       <div className="containerImages">
-        {/*  <img src={pet.image} alt="" className="Image" /> */}
+        <img src={pet.image} alt="" className="Image" />
       </div>
-      <div className="containerTitleDescipcion">
+      <div className="containerTitleDescription">
         <div className="containerTitle">
           <h1 className="title">{pet.name}</h1>
           <div className="span"></div>
@@ -59,16 +59,16 @@ function PetCard({ pet }) {
         </Modal.Header>
         <Modal.Body>
           <p className="modal-info">
-            <span className="bold-span">Nombre:</span> {pet.name}
+            <span className="bold-span">Nombre:</span> {pet?.name}
           </p>
           <p className="modal-info">
-            <span className="bold-span">Descripción:</span> {pet.description}
+            <span className="bold-span">Descripción:</span> {pet?.description}
           </p>
           <p className="modal-info">
-            <span className="bold-span">Edad:</span> {pet.age}
+            <span className="bold-span">Edad:</span> {pet?.age}
           </p>
           <p className="modal-info">
-            <span className="bold-span">Ubicación:</span> {pet.ubication}
+            <span className="bold-span">Ubicación:</span> {pet?.location}
           </p>
         </Modal.Body>
         <Modal.Footer>
