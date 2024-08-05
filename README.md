@@ -21,7 +21,7 @@ Nuestros refugios asociados trabajan incansablemente para rescatar y cuidar a es
 | Emerson Herrera Vásquez           | Desarrollador Backend |  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emersonhv/) 
 | Miguel Ángel Chávez               | Desarrollador Backend |  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/miguelangelchavez-/) 
 | Sebastian Guerra                  | Desarrollador Backend |  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sebastian-guerra-682b04297/) 
-| Yohan Rodriguez                   | QA Manual             |
+| Yohan Rodriguez                   | QA Manual             |  [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yohanrodri/) 
 
 ### backend:
 - Lenguaje Java
